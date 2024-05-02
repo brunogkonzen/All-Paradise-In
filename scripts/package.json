@@ -1,0 +1,23 @@
+{
+  "name": "all-paradise-in",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^30.0.2",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "antd": "^5.17.0",
+    "firebase": "^10.11.1"
+  }
+}
