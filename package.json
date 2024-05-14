@@ -9,6 +9,6 @@
   "author": "Arthur K e Bruno",
   "license": "MIT",
   "dependencies": {
-    "electron": "^16.0.0"
+    "electron": "^16.2.8"
   }
 }

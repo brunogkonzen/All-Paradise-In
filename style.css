@@ -5,6 +5,9 @@
   .hand {
     margin: 10px 0;
   }
+  .background {
+    background: no-repeat center/80% url("docs/Black-Suited-Speed-Cloth-700x700.jpg");
+  }
   
   button {
     margin: 5px;
