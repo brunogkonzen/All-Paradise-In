@@ -8,7 +8,7 @@ let gameOver = false;
 
 // Fun??o para criar um baralho de cartas
 function createDeck() {
-    const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+    const suits = ['Copas', 'Ouro', 'Paus', 'Espadas'];
     const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
     for (let suit of suits) {
@@ -100,18 +100,18 @@ function updateUI() {
 
     for (let card of playerHand) {
         const cardElement = document.createElement('div');
-        cardElement.textContent = `${card.value} of ${card.suit}`;
+        cardElement.textContent = `${card.value} de ${card.suit}`;
         document.getElementById('player-hand').appendChild(cardElement);
     }
 
     for (let card of dealerHand) {
         const cardElement = document.createElement('div');
-        cardElement.textContent = `${card.value} of ${card.suit}`;
+        cardElement.textContent = `${card.value} de ${card.suit}`;
         document.getElementById('dealer-hand').appendChild(cardElement);
     }
 
-    document.getElementById('player-score').textContent = `Player Score: ${playerScore}`;
-    document.getElementById('dealer-score').textContent = `Dealer Score: ${dealerScore}`;
+    document.getElementById('player-score').textContent = `Pontuação do Jogador: ${playerScore}`;
+    document.getElementById('dealer-score').textContent = `Pontuação do Dealer: ${dealerScore}`;
 }
 
 // Fun??o para reiniciar o jogo
@@ -135,7 +135,7 @@ document.getElementById('hit-button').addEventListener('click', function() {
 
         if (isBusted(playerScore)) {
             gameOver = true;
-            document.getElementById('message').textContent = 'Player Busted! Dealer wins.';
+            document.getElementById('message').textContent = 'Jogador Estourou! Dealer venceu.';
         }
     }
 });
@@ -152,11 +152,11 @@ document.getElementById('stand-button').addEventListener('click', function() {
 
         const winner = checkWinner();
         if (winner === 'Player') {
-            document.getElementById('message').textContent = 'Player wins!';
+            document.getElementById('message').textContent = 'Jogador venceu!';
         } else if (winner === 'Dealer') {
-            document.getElementById('message').textContent = 'Dealer wins!';
+            document.getElementById('message').textContent = 'Dealer venceu!';
         } else {
-            document.getElementById('message').textContent = 'It\'s a tie!';
+            document.getElementById('message').textContent = 'Empate!';
         }
 
         gameOver = true;
