@@ -1,15 +1,34 @@
-#game-container {
-    text-align: center;
-  }
-  
-  .hand {
-    margin: 10px 0;
-  }
-  .background {
-    background: no-repeat center/80% url("docs/Black-Suited-Speed-Cloth-700x700.jpg");
-  }
-  
-  button {
-    margin: 5px;
-  }
-  
+/* style.css */
+body {
+  background: url('background.jpeg') no-repeat center center fixed; 
+  background-size: cover;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#root {
+  text-align: center;
+}
+
+.ant-form {
+  width: 300px;
+  margin: 0 auto; /* centraliza o formul?rio */
+}
+
+.ant-form-item-label {
+  text-align: center;
+  color: white;
+}
+
+#message {
+  text-align: center;
+}
+
+h1, h2, p {
+  text-align: center;
+}
