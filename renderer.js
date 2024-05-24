@@ -8,7 +8,7 @@ let gameOver = false;
 
 // Fun??o para criar um baralho de cartas
 function createDeck() {
-    const suits = ['Copas', 'Ouro', 'Paus', 'Espadas'];
+    const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
     const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
     for (let suit of suits) {
@@ -93,25 +93,35 @@ function checkWinner() {
     }
 }
 
+// Fun??o para criar e exibir uma carta na tela
+function displayCard(containerId, card) {
+    const container = document.getElementById(containerId);
+    const cardImage = document.createElement('img');
+    cardImage.classList.add('card');
+    cardImage.src = `public/cards/${card.value}_of_${card.suit}.png`; // Modelo da carta
+    cardImage.alt = `${card.value} of ${card.suit}`;
+    container.appendChild(cardImage);
+}
+
+
+// Fun??o para exibir todas as cartas na tela
+function displayAllCards() {
+    for (let card of playerHand) {
+        displayCard('player-hand', card);
+    }
+
+    for (let card of dealerHand) {
+        displayCard('dealer-hand', card);
+    }
+}
+
 // Fun??o para atualizar a interface do usu?rio
 function updateUI() {
     document.getElementById('player-hand').innerHTML = '';
     document.getElementById('dealer-hand').innerHTML = '';
-
-    for (let card of playerHand) {
-        const cardElement = document.createElement('div');
-        cardElement.textContent = `${card.value} de ${card.suit}`;
-        document.getElementById('player-hand').appendChild(cardElement);
-    }
-
-    for (let card of dealerHand) {
-        const cardElement = document.createElement('div');
-        cardElement.textContent = `${card.value} de ${card.suit}`;
-        document.getElementById('dealer-hand').appendChild(cardElement);
-    }
-
-    document.getElementById('player-score').textContent = `Pontuação do Jogador: ${playerScore}`;
-    document.getElementById('dealer-score').textContent = `Pontuação do Dealer: ${dealerScore}`;
+    displayAllCards(); // Exibir todas as cartas
+    document.getElementById('player-score').textContent = `Player Score: ${playerScore}`;
+    document.getElementById('dealer-score').textContent = `Dealer Score: ${dealerScore}`;
 }
 
 // Fun??o para reiniciar o jogo
@@ -135,7 +145,7 @@ document.getElementById('hit-button').addEventListener('click', function() {
 
         if (isBusted(playerScore)) {
             gameOver = true;
-            document.getElementById('message').textContent = 'Jogador Estourou! Dealer venceu.';
+            document.getElementById('message').textContent = 'Player Busted! Dealer wins.';
         }
     }
 });
@@ -152,11 +162,11 @@ document.getElementById('stand-button').addEventListener('click', function() {
 
         const winner = checkWinner();
         if (winner === 'Player') {
-            document.getElementById('message').textContent = 'Jogador venceu!';
+            document.getElementById('message').textContent = 'Player wins!';
         } else if (winner === 'Dealer') {
-            document.getElementById('message').textContent = 'Dealer venceu!';
+            document.getElementById('message').textContent = 'Dealer wins!';
         } else {
-            document.getElementById('message').textContent = 'Empate!';
+            document.getElementById('message').textContent = 'It\'s a tie!';
         }
 
         gameOver = true;

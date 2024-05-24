@@ -1,34 +1,55 @@
-/* style.css */
 body {
-  background: url('background.jpeg') no-repeat center center fixed; 
-  background-size: cover;
+  background-color: #2c3e50; /* Cor de fundo do corpo */
+  color: #ecf0f1; /* Cor do texto */
+  font-family: Arial, sans-serif; /* Fonte */
+}
+
+#game-container {
+  text-align: center;
+  margin-top: 50px; /* Margem superior */
+}
+
+.hand {
+  margin: 20px 0; /* Margem entre as m?os */
+}
+
+.card {
+  display: inline-block;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 0 5px; /* Margem entre as cartas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Efeito de levantar ao passar o mouse */
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
   color: white;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-#root {
-  text-align: center;
+button:hover {
+  background-color: #2980b9; /* Mudan?a de cor ao passar o mouse */
 }
 
-.ant-form {
-  width: 300px;
-  margin: 0 auto; /* centraliza o formul?rio */
-}
-
-.ant-form-item-label {
-  text-align: center;
-  color: white;
-}
-
-#message {
-  text-align: center;
-}
-
-h1, h2, p {
-  text-align: center;
+.card {
+  display: inline-block;
+  max-width: 100px; /* Largura m?xima das cartas */
+  height: auto; /* Altura ajust?vel proporcionalmente */
+  margin: 0 5px; /* Margem entre as cartas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
 }
