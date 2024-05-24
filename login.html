@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .form-container {
+            background-color: rgb(34, 31, 31);
+            padding: 80px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-container input[type="text"], .form-container input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #1a1818;
+            border-radius: 4px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulário de Login</h2>
+        <form id="loginForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            
+            <button type="submit" href="menu.html">Entrar</button>
+            <h5>Não possou cadastro <a href="singin.html">Sing in </a></h5>
+            <h5><a href="menu.html">Menu</a></h5>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            var nome = document.getElementById('nome').value;
+            var senha = document.getElementById('senha').value;
+            var errorMsg = document.getElementById('error-msg');
+
+            errorMsg.textContent = ''; // Limpa a mensagem de erro
+
+            if (nome.trim() === '') {
+                errorMsg.textContent = 'O campo Nome é obrigatório.';
+                event.preventDefault();
+                return;
+            }
+
+            if (senha.trim() === '') {
+                errorMsg.textContent = 'O campo Senha é obrigatório.';
+                event.preventDefault();
+                return;
+            }
+
+            // Adicione mais validações conforme necessário
+        });
+    </script>
+</body>
+</html>
