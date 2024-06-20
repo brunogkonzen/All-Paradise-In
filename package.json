@@ -4,11 +4,15 @@
   "description": "Simple Blackjack game using Electron",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "nodemon --exec \"node start.js\" --watch . --ext js,html,css"
   },
   "author": "Arthur K e Bruno",
   "license": "MIT",
   "dependencies": {
-    "electron": "^16.2.8"
+    "electron": "^16.2.8",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

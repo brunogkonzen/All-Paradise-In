@@ -1,52 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blackjack</title>
+  <title>Menu</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        .form-container {
-            background-color: rgb(34, 31, 31);
-            padding: 80px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .form-container h2 {
-            margin-bottom: 20px;
-        }
-        .form-container label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-container input[type="text"], .form-container input[type="password"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #1a1818;
-            border-radius: 4px;
-        }
-        .form-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .form-container button:hover {
-            background-color: #45a049;
-        }
-    </style>
 </head>
 <body>
-  <div class="form-container">
-    <form id="menuform">
-    <h1>Blackjack</h1><br><br><br>
-    <button id="restart-button" href="index.html">PLAY</button><br><br>
-    <button id="show-ranckind" href="index.html">RANKING</button><br><br>
-    <button href="login.html">LOGOUT</button><br>
-    </form>
+  <div id="menu-container">
+    <h1>Welcome to Blackjack</h1>
+    <button onclick="startGame()">Start Game</button>
+    <script>
+      function startGame() {
+        window.location.href = "index.html";
+      }
+    </script>
   </div>
-  <script src="renderer.js"></script>
 </body>
 </html>

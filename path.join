@@ -1,0 +1,47 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const app = express();
+const PORT = 3000;
+
+// Configurar o bodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Servir arquivos est?ticos
+app.use(express.static(path.join(__dirname)));
+
+// Rota para a p?gina de login
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'login.html'));
+});
+
+// Rota para a p?gina de registro
+app.get('/signin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'signin.html'));
+});
+
+// Rota para a p?gina do menu
+app.get('/menu', (req, res) => {
+  res.sendFile(path.join(__dirname, 'menu.html'));
+});
+
+// Manipulador de login
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  // Adicione a lógica de autentica??o aqui
+  // Se autenticado:
+  res.redirect('/menu');
+  // Caso contr?rio, redirecione de volta para a p?gina de login
+});
+
+// Manipulador de registro
+app.post('/signin', (req, res) => {
+  const { username, password } = req.body;
+  // Adicione a lógica de registro aqui
+  res.redirect('/login');
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});

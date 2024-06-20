@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blackjack</title>
+  <title>All Paradise In</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Link para a fonte -->
 </head>
 <body>
   <div id="game-container">
-    <h1>Blackjack</h1>
-    <div>
-      <h2>Player's Hand</h2>
-      <div id="player-hand" class="hand"></div>
-      <p id="player-score">Player Score: 0</p>
-    </div>
-    <div>
-      <h2>Dealer's Hand</h2>
-      <div id="dealer-hand" class="hand"></div>
-      <p id="dealer-score">Dealer Score: 0</p>
-    </div>
+    <h2>Player's Hand</h2>
+    <div id="player-hand" class="hand"></div>
+    <p id="player-score">Player Score: 0</p>
+    <h2>Dealer's Hand</h2>
+    <div id="dealer-hand" class="hand"></div>
+    <p id="dealer-score">Dealer Score: 0</p>
     <div>
       <button id="hit-button">Hit</button>
       <button id="stand-button">Stand</button>
-      <button id="restart-button">Restart</button>
     </div>
     <p id="message"></p>
+  </div>
+  <div id="overlay" class="overlay">
+    <div class="result-content">
+      <div id="result-message" class="result-message">Winner!</div>
+      <button id="restart-button" class="restart-button">Restart</button>
+    </div>
   </div>
   <script src="renderer.js"></script>
 </body>
