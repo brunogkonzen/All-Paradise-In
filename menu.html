@@ -6,13 +6,11 @@
 </head>
 <body>
   <div id="menu-container">
-    <h1>Welcome to Blackjack</h1>
-    <button onclick="startGame()">Start Game</button>
-    <script>
-      function startGame() {
-        window.location.href = "index.html";
-      }
-    </script>
+    <h1>Choose Match Type</h1>
+    <button class="menu-button" data-rounds="1">Best of 1</button>
+    <button class="menu-button" data-rounds="3">Best of 3</button>
+    <button class="menu-button" data-rounds="7">Best of 7</button>
   </div>
+  <script src="menu.js"></script>
 </body>
 </html>

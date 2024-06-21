@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Importar a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 html, body {
   height: 100%;
-  overflow: hidden; /* Evita barras de rolagem */
+  overflow: hidden;
 }
 
 body {
@@ -13,8 +13,39 @@ body {
   background-attachment: fixed;
   margin: 0;
   padding: 0;
-  font-family: 'Press Start 2P', cursive; /* Aplicar a fonte personalizada */
+  font-family: 'Press Start 2P', cursive;
   color: #ffffff;
+}
+
+.hidden {
+  display: none;
+}
+
+#menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.menu-button {
+  margin: 10px;
+  padding: 20px;
+  font-size: 24px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border: 2px solid #34495e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: #34495e;
+  transform: scale(1.1);
 }
 
 #game-container {
@@ -25,7 +56,7 @@ body {
   height: 100%;
   text-align: center;
   color: #ffffff;
-  transition: filter 0.3s ease; /* Adiciona uma transi??o suave ao filtro */
+  transition: filter 0.3s ease;
 }
 
 .hand {
@@ -34,8 +65,8 @@ body {
 
 .card {
   display: inline-block;
-  width: 100px; /* Tamanho fixo da largura das cartas */
-  height: 150px; /* Tamanho fixo da altura das cartas */
+  width: 100px;
+  height: 150px;
   background-color: white;
   border-radius: 8px;
   padding: 10px;
@@ -58,48 +89,67 @@ button {
   margin: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  font-family: 'Press Start 2P', cursive; /* Aplicar a fonte personalizada aos botões */
-  background-color: #2c3e50; /* Cor de fundo escura */
-  color: #ecf0f1; /* Cor do texto clara */
-  border: 2px solid #34495e; /* Borda com tom um pouco mais claro */
-  border-radius: 8px; /* Borda arredondada */
+  font-family: 'Press Start 2P', cursive;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border: 2px solid #34495e;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-  background-color: #34495e; /* Mudan?a de cor ao passar o mouse */
-  transform: scale(1.1); /* Leve aumento de tamanho ao passar o mouse */
+  background-color: #34495e;
+  transform: scale(1.1);
 }
 
 button:active {
-  background-color: #1abc9c; /* Cor de fundo ao clicar */
-  transform: scale(1); /* Reduz o tamanho ao clicar */
+  background-color: #1abc9c;
+  transform: scale(1);
 }
 
 h1, h2, p {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto para destacar */
-  font-family: 'Press Start 2P', cursive; /* Aplicar a fonte personalizada */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Press Start 2P', cursive;
 }
 
 h1 {
-  font-size: 36px; /* Tamanho maior para o t?tulo */
+  font-size: 36px;
 }
 
 h2 {
-  font-size: 24px; /* Tamanho intermedi?rio para subt?tulos */
+  font-size: 24px;
 }
 
 p {
-  font-size: 18px; /* Tamanho padr?o para par?grafos */
+  font-size: 18px;
 }
 
 #player-score {
-  color: yellow; /* Cor amarela para o Player Score */
+  color: yellow;
 }
 
 #dealer-score {
-  color: yellow; /* Cor amarela para o Dealer Score */
+  color: yellow;
+}
+
+#wins-container {
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#sequence-container {
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #2c3e50;
+  padding: 10px;
+  border: 2px solid #34495e;
+  border-radius: 8px;
 }
 
 .overlay {
@@ -108,19 +158,19 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  opacity: 0; /* Iniciar invis?vel */
-  transition: opacity 0.5s ease; /* Transi??o suave para a opacidade */
-  pointer-events: none; /* Impedir clique enquanto invis?vel */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
 .overlay.show {
-  opacity: 1; /* Tornar vis?vel */
-  pointer-events: all; /* Permitir clique quando vis?vel */
+  opacity: 1;
+  pointer-events: all;
 }
 
 .result-content {
@@ -128,22 +178,22 @@ p {
 }
 
 .result-message {
-  font-size: 48px; /* Tamanho grande para o texto */
-  color: yellow; /* Cor padr?o para o texto */
-  transform: scale(0); /* Iniciar em tamanho pequeno */
-  animation: showMessage 0.5s forwards; /* Anima??o para aumentar o tamanho */
+  font-size: 48px;
+  color: yellow;
+  transform: scale(0);
+  animation: showMessage 0.5s forwards;
 }
 
-.restart-button {
+.restart-button, .menu-button, .next-round-button {
   margin-top: 20px;
 }
 
 @keyframes showMessage {
   to {
-    transform: scale(1); /* Tamanho final */
+    transform: scale(1);
   }
 }
 
 .blur {
-  filter: blur(5px); /* Aplicar desfoque ao fundo */
+  filter: blur(5px);
 }

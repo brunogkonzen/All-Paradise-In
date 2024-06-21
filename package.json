@@ -10,7 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "electron": "^16.2.8",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "antd": "^4.16.13"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
