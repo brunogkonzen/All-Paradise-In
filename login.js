@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginButton = document.getElementById('login-button');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
+    const messageBox = document.getElementById('message-box');
 
     loginButton.addEventListener('click', function() {
         const username = usernameInput.value;
@@ -13,8 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Verifica se o usu?rio e senha est?o corretos
         const user = users.find(user => user.username === username && user.password === password);
         if (user) {
-            window.location.href = 'game-menu.html'; // Certifique-se de que este caminho est? correto
+            messageBox.textContent = 'Login successful!';
+            messageBox.style.color = 'green';
+            setTimeout(() => {
+                window.location.href = 'menu.html'; // Certifique-se de que este caminho est? correto
+            }, 2000); // Redireciona após 2 segundos
         } else {
+            messageBox.textContent = 'Login failed. Incorrect username or password.';
+            messageBox.style.color = 'red';
             // Limpar os campos de entrada após uma tentativa de login falha
             usernameInput.value = '';
             passwordInput.value = '';
