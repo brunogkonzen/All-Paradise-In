@@ -1,25 +1,20 @@
-
+// menu.js
 document.addEventListener('DOMContentLoaded', function() {
   const buttons = document.querySelectorAll('.menu-button');
+  const messageBox = document.getElementById('message-box');
 
-  buttons.forEach(button => {
-    button.addEventListener('click', function() {
-      const rounds = button.getAttribute('data-rounds');
-      localStorage.setItem('totalRounds', rounds);
-      window.location.href = 'index.html';
-    });
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  const buttons = document.querySelectorAll('.menu-button');
   buttons.forEach(button => {
       button.addEventListener('click', function() {
           const rounds = this.getAttribute('data-rounds');
-          alert('Starting a game with ' + rounds + ' rounds.');
-          // Adicione aqui a lógica para iniciar o jogo com o n?mero especificado de rounds
-          // Por exemplo, redirecionar para uma p?gina de jogo ou iniciar uma fun??o de jogo
-          // Exemplo: window.location.href = 'game.html?rounds=' + rounds;
+          localStorage.setItem('totalRounds', rounds);
+          messageBox.textContent = `Starting game with best of ${rounds} rounds...`;
+          messageBox.style.color = 'green';
+
+          // Simula um atraso para exibir a mensagem antes de iniciar o jogo
+          setTimeout(() => {
+              // Redirecionar para a p?gina do jogo
+              window.location.href = 'renderer.html'; // Certifique-se de que este caminho est? correto
+          }, 2000); // Exibir mensagem por 2 segundos antes de redirecionar
       });
   });
 });
