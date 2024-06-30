@@ -1,51 +1,59 @@
-﻿const { app, BrowserWindow } = require('electron');
+﻿// main.js
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const url = require('url');
+const { addUser, getUser } = require('./database');
 
 function createWindow() {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    icon: path.join(__dirname, 'icon.png'),
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-    }
-  });
-
-  const loginPath = path.join(__dirname, 'login.html');
-  console.log(`Loading URL: ${loginPath}`);
-
-  win.loadURL(
-    url.format({
-      pathname: loginPath,
-      protocol: 'file:',
-      slashes: true
-    })
-  ).catch((error) => {
-    console.error('Failed to load URL:', error);
-  });
-
-  win.webContents.on('did-finish-load', () => {
-    win.webContents.send('set-title', app.getName());
-  });
-
-  win.webContents.on('new-window', (event, newUrl) => {
-    event.preventDefault();
-    win.loadURL(newUrl);
-  });
+    const win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        icon: path.join(__dirname, 'icon.png'), // Defina o caminho do ícone aqui
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js'),
+            contextIsolation: true,
+            enableRemoteModule: false
+        }
+    });
+    win.loadFile('login.html');
+    
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+    ipcMain.handle('add-user', async (event, username, password) => {
+        return new Promise((resolve, reject) => {
+            addUser(username, password, (err, userId) => {
+                if (err) {
+                    reject({ error: err.message });
+                } else {
+                    resolve({ userId });
+                }
+            });
+        });
+    });
+
+    ipcMain.handle('get-user', async (event, username) => {
+        return new Promise((resolve, reject) => {
+            getUser(username, (err, user) => {
+                if (err) {
+                    reject({ error: err.message });
+                } else {
+                    resolve(user);
+                }
+            });
+        });
+    });
+
+    createWindow();
+});
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 });
 
 app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
+    if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
+    }
 });

@@ -9,9 +9,10 @@
   "author": "Arthur K e Bruno",
   "license": "MIT",
   "dependencies": {
+    "antd": "^4.24.16",
     "electron": "^16.2.8",
     "express": "^4.19.2",
-    "antd": "^4.16.13"
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

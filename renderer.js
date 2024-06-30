@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
   const totalRounds = localStorage.getItem('totalRounds');
   const savedSequenceWins = localStorage.getItem('sequenceWins');

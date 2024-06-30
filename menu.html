@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Menu</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icon.png">
+    <!-- Adicione a pol?tica de seguran?a de conte?do aqui -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
 </head>
 <body>
-  <div id="menu-container">
-    <h1>Choose Match Type</h1>
-    <button class="menu-button" data-rounds="1">Best of 1</button>
-    <button class="menu-button" data-rounds="3">Best of 3</button>
-    <button class="menu-button" data-rounds="7">Best of 7</button>
-  </div>
-  <script src="menu.js"></script>
+    <div id="menu-container" class="container">
+        <h1>Choose Match Type</h1>
+        <button class="menu-button" data-rounds="1">Best of 1</button>
+        <button class="menu-button" data-rounds="3">Best of 3</button>
+        <button class="menu-button" data-rounds="7">Best of 7</button>
+    </div>
+    <script src="menu.js"></script>
 </body>
 </html>

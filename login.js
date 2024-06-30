@@ -1,32 +1,38 @@
-const { Form, Input, Button } = antd;
+// login.js
+document.addEventListener('DOMContentLoaded', function() {
+  const loginButton = document.getElementById('login-button');
+  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password');
 
-const Login = () => {
-  const onFinish = (values) => {
-    console.log('Success:', values);
-    // Simulando login bem-sucedido
-    if (values.username === 'admin' && values.password === 'admin') {
-      window.location.href = 'menu.html';
-    } else {
-      alert('Invalid credentials');
-    }
-  };
+  loginButton.addEventListener('click', function() {
+      const username = usernameInput.value;
+      const password = passwordInput.value;
 
-  return (
-    React.createElement('div', { style: { width: '300px', margin: '100px auto' } },
-      React.createElement('h2', null, 'Login'),
-      React.createElement(Form, { name: 'login', initialValues: { remember: true }, onFinish: onFinish },
-        React.createElement(Form.Item, { name: 'username', rules: [{ required: true, message: 'Please input your Username!' }] },
-          React.createElement(Input, { placeholder: 'Username' })
-        ),
-        React.createElement(Form.Item, { name: 'password', rules: [{ required: true, message: 'Please input your Password!' }] },
-          React.createElement(Input.Password, { placeholder: 'Password' })
-        ),
-        React.createElement(Form.Item, null,
-          React.createElement(Button, { type: 'primary', htmlType: 'submit', style: { width: '100%' } }, 'Login')
-        )
-      )
-    )
-  );
-};
+      let users = JSON.parse(localStorage.getItem('users')) || [];
 
-ReactDOM.render(React.createElement(Login), document.getElementById('login-container'));
+      // Verifica se o usu?rio e senha est?o corretos
+      const user = users.find(user => user.username === username && user.password === password);
+      if (user) {
+          alert('Login successful!');
+          window.location.href = 'game-menu.html'; // Certifique-se de que este caminho est? correto
+      } else {
+          alert('Login failed. Incorrect username or password.');
+          // Limpar os campos de entrada após uma tentativa de login falha
+          usernameInput.value = '';
+          passwordInput.value = '';
+          usernameInput.disabled = false; // Certifique-se de que o campo est? habilitado
+          passwordInput.disabled = false; // Certifique-se de que o campo est? habilitado
+          usernameInput.focus(); // Focar no campo de username
+      }
+  });
+
+  const registerButton = document.getElementById('register-button');
+  registerButton.addEventListener('click', function() {
+      window.location.href = 'register.html'; // Redirecionamento para a p?gina de registro
+  });
+
+  // Garantir que os campos estejam sempre habilitados e foc?veis
+  usernameInput.disabled = false;
+  passwordInput.disabled = false;
+  usernameInput.focus();
+});
