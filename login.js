@@ -11,32 +11,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let users = JSON.parse(localStorage.getItem('users')) || [];
 
-        // Verifica se o usu?rio e senha est?o corretos
         const user = users.find(user => user.username === username && user.password === password);
         if (user) {
             messageBox.textContent = 'Login successful!';
             messageBox.style.color = 'green';
+            messageBox.style.display = 'block'; // Mostrar a mensagem
             setTimeout(() => {
-                window.location.href = 'menu.html'; // Certifique-se de que este caminho est? correto
-            }, 2000); // Redireciona após 2 segundos
+                window.location.href = 'menu.html';
+            }, 2000);
         } else {
             messageBox.textContent = 'Login failed. Incorrect username or password.';
             messageBox.style.color = 'red';
-            // Limpar os campos de entrada após uma tentativa de login falha
+            messageBox.style.display = 'block'; // Mostrar a mensagem
             usernameInput.value = '';
             passwordInput.value = '';
-            usernameInput.disabled = false; // Certifique-se de que o campo est? habilitado
-            passwordInput.disabled = false; // Certifique-se de que o campo est? habilitado
-            usernameInput.focus(); // Focar no campo de username
+            usernameInput.disabled = false;
+            passwordInput.disabled = false;
+            usernameInput.focus();
         }
     });
 
     const registerButton = document.getElementById('register-button');
     registerButton.addEventListener('click', function() {
-        window.location.href = 'register.html'; // Redirecionamento para a p?gina de registro
+        window.location.href = 'register.html';
     });
 
-    // Garantir que os campos estejam sempre habilitados e foc?veis
     usernameInput.disabled = false;
     passwordInput.disabled = false;
     usernameInput.focus();

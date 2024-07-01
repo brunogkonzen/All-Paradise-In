@@ -1,55 +1,42 @@
 // register.js
 document.addEventListener('DOMContentLoaded', function() {
-    const createAccountButton = document.getElementById('create-account-button');
-    const usernameInput = document.getElementById('new-username');
-    const passwordInput = document.getElementById('new-password');
+    const registerButton = document.getElementById('register-button');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
     const messageBox = document.getElementById('message-box');
+    const backButton = document.getElementById('back-button');
 
-    createAccountButton.addEventListener('click', function() {
+    registerButton.addEventListener('click', function() {
         const username = usernameInput.value;
         const password = passwordInput.value;
 
-        if (username && password) {
-            let users = JSON.parse(localStorage.getItem('users')) || [];
+        let users = JSON.parse(localStorage.getItem('users')) || [];
 
-            // Verifica se o usu?rio j? existe
-            const userExists = users.some(user => user.username === username);
-            if (userExists) {
-                messageBox.textContent = 'Username already exists. Please choose a different username.';
-                messageBox.style.color = 'red';
-                usernameInput.value = '';
-                passwordInput.value = '';
-                usernameInput.disabled = false;
-                passwordInput.disabled = false;
-                usernameInput.focus();
-                return;
-            }
-
-            // Adiciona o novo usu?rio
-            users.push({ username: username, password: password });
-            localStorage.setItem('users', JSON.stringify(users));
-
-            messageBox.textContent = 'Account created successfully!';
-            messageBox.style.color = 'green';
-            setTimeout(() => {
-                window.location.href = 'login.html'; // Redireciona para a p?gina de login
-            }, 2000); // Redireciona após 2 segundos
-        } else {
-            messageBox.textContent = 'Please enter a username and password.';
+        if (username === '') {
+            messageBox.textContent = 'Username is required.';
             messageBox.style.color = 'red';
-            usernameInput.disabled = false; // Certifique-se de que o campo est? habilitado
-            passwordInput.disabled = false; // Certifique-se de que o campo est? habilitado
-            usernameInput.focus(); // Focar no campo de username
+            messageBox.style.display = 'block'; // Mostrar a mensagem
+        } else if (password === '') {
+            messageBox.textContent = 'Password is required.';
+            messageBox.style.color = 'red';
+            messageBox.style.display = 'block'; // Mostrar a mensagem
+        } else if (users.find(user => user.username === username)) {
+            messageBox.textContent = 'Username already taken.';
+            messageBox.style.color = 'red';
+            messageBox.style.display = 'block'; // Mostrar a mensagem
+        } else {
+            users.push({ username, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            messageBox.textContent = 'Registration successful!';
+            messageBox.style.color = 'green';
+            messageBox.style.display = 'block'; // Mostrar a mensagem
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
         }
     });
 
-    const backLoginButton = document.getElementById('back-login-button');
-    backLoginButton.addEventListener('click', function() {
-        window.location.href = 'login.html'; // Redirecionamento para a p?gina de login
+    backButton.addEventListener('click', function() {
+        window.location.href = 'login.html';
     });
-
-    // Garantir que os campos estejam sempre habilitados e foc?veis
-    usernameInput.disabled = false;
-    passwordInput.disabled = false;
-    usernameInput.focus();
 });

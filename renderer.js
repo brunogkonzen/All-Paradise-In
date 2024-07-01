@@ -113,6 +113,9 @@ function displayCard(containerId, card) {
 }
 
 function displayAllCards() {
+  document.getElementById('player-hand').innerHTML = '';
+  document.getElementById('dealer-hand').innerHTML = '';
+  
   for (let card of playerHand) {
       displayCard('player-hand', card);
   }
@@ -123,8 +126,6 @@ function displayAllCards() {
 }
 
 function updateUI() {
-  document.getElementById('player-hand').innerHTML = '';
-  document.getElementById('dealer-hand').innerHTML = '';
   displayAllCards();
   document.getElementById('player-score').textContent = `Player Score: ${playerScore}`;
   document.getElementById('dealer-score').textContent = `Dealer Score: ${dealerScore}`;

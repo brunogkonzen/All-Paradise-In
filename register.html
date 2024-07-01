@@ -7,17 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="icon.png">
-    <!-- Adicione a pol?tica de seguran?a de conte?do aqui -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
 </head>
 <body>
     <div id="register-container" class="container">
-        <h1>Register</h1>
-        <input type="text" id="new-username" placeholder="New username">
-        <input type="password" id="new-password" placeholder="New password">
-        <button id="create-account-button">Create Account</button>
-        <button id="back-login-button">Back to Login</button>
-        <p id="message-box" class="message-box"></p> <!-- Caixa de mensagem -->
+        <h1>New User</h1>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button id="register-button">Register</button>
+        <button id="back-button">Back to Login</button>
+        <p id="message-box" class="message-box hidden"></p> <!-- Caixa de mensagem, inicialmente escondida -->
     </div>
     <script src="register.js"></script>
 </body>

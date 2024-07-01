@@ -2,7 +2,7 @@
 body, html {
   height: 100%;
   margin: 0;
-  font-family: 'Press Start 2P', cursive; /* Aplica a fonte aos elementos do corpo */
+  font-family: 'Press Start 2P', cursive;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,11 +13,17 @@ body, html {
 .container {
   width: 300px;
   padding: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8); /* Leve fundo branco com transpar?ncia */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   text-align: center;
   margin-top: 100px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+h1 {
+  color: yellow; /* Cor amarela para o t?tulo */
 }
 
 .hidden {
@@ -30,8 +36,8 @@ input[type="text"], input[type="password"], button {
   margin-top: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  font-family: 'Press Start 2P', cursive; /* Aplica a fonte a inputs e botões */
-  outline: none; /* Remove outline ao focar */
+  font-family: 'Press Start 2P', cursive;
+  outline: none;
 }
 
 button {
@@ -48,6 +54,12 @@ button:hover {
 .message-box {
   margin-top: 10px;
   font-family: 'Press Start 2P', cursive;
+  background-color: black; /* Fundo preto para a mensagem */
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Inicialmente escondido */
+  width: auto;
+  text-align: center;
 }
 
 .card-container {

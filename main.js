@@ -1,5 +1,4 @@
-﻿// main.js
-const { app, BrowserWindow, ipcMain } = require('electron');
+﻿const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const { addUser, getUser } = require('./database');
 
@@ -7,7 +6,7 @@ function createWindow() {
     const win = new BrowserWindow({
         width: 800,
         height: 600,
-        icon: path.join(__dirname, 'icon.png'), // Defina o caminho do ícone aqui
+        icon: path.join(__dirname, 'icon.png'),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
@@ -15,7 +14,6 @@ function createWindow() {
         }
     });
     win.loadFile('login.html');
-    
 }
 
 app.whenReady().then(() => {
