@@ -13,17 +13,30 @@ body, html {
 .container {
   width: 300px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Leve fundo branco com transpar?ncia */
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   text-align: center;
   margin-top: 100px;
   color: white;
   text-shadow: 1px 1px 2px black;
+  position: relative;
+}
+
+.sequence-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(128, 128, 128, 0.8); /* Fundo cinza */
+  padding: 5px 10px;
+  color: white; /* Texto em branco */
+  font-size: 16px;
+  border-radius: 5px;
+  z-index: 1001;
 }
 
 h1 {
-  color: yellow; /* Cor amarela para o t?tulo */
+  color: yellow;
 }
 
 .hidden {
@@ -54,19 +67,18 @@ button:hover {
 .message-box {
   margin-top: 10px;
   font-family: 'Press Start 2P', cursive;
-  background-color: black; /* Fundo preto para a mensagem */
+  background-color: transparent; /* Alterado para transparente */
   padding: 10px;
   border-radius: 5px;
-  display: none; /* Inicialmente escondido */
+  display: none;
   width: auto;
   text-align: center;
 }
 
-.card-container {
+.hand {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  margin-bottom: 10px;
 }
 
 .card {
@@ -104,4 +116,13 @@ button:hover {
 
 .result-message {
   text-align: center;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-animation {
+  animation: fade 1s ease-out;
 }

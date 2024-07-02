@@ -3,36 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Blackjack Game</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="icon.png">
-    <!-- Adicione a pol?tica de seguran?a de conte?do aqui -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="overlay" class="overlay hidden"></div>
+    <p id="game-message" class="message-box hidden"></p>
     <div id="game-container" class="container">
-        <h1>Game</h1>
+        <div id="sequence-container" class="sequence-container">
+            SEQUENCE OF WINS: <span id="sequence-wins">0</span>
+        </div>
+        <h1>Blackjack</h1>
         <div id="player-container">
             <h2>Player's Hand</h2>
             <div id="player-hand" class="hand"></div>
-            <p id="player-score" class="score"></p>
+            <p id="player-score" class="score">Player Score: 0</p>
         </div>
         <div id="dealer-container">
             <h2>Dealer's Hand</h2>
             <div id="dealer-hand" class="hand"></div>
-            <p id="dealer-score" class="score"></p>
+            <p id="dealer-score" class="score">Dealer Score: 0</p>
         </div>
-        <p id="game-message" class="message-box"></p>
-        <!-- Game Buttons -->
-        <button id="hit-button">Hit</button>
-        <button id="stand-button">Stand</button>
-        <button id="next-round-button" class="hidden">Next Round</button>
-        <button id="restart-button" class="hidden">Restart</button>
-        <button id="menu-button" class="hidden">Menu</button>
-        <!-- Result Message -->
-        <div id="overlay" class="overlay hidden">
-            <div id="result-message" class="result-message"></div>
+        <button id="hit-button" class="action-button">Hit</button>
+        <button id="stand-button" class="action-button">Stand</button>
+        <div id="game-controls" class="game-controls">
+            <button id="restart-button" class="hidden">Restart</button>
+            <button id="menu-button" class="hidden">Menu</button>
+            <button id="new-series-button" class="hidden">New Series</button>
+            <button id="next-round-button" class="hidden">Next Round</button>
         </div>
     </div>
     <script src="renderer.js"></script>
