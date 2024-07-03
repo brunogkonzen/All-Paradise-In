@@ -1,5 +1,5 @@
 # All-Paradise-In 🃏
-Autores: Bruno Konzen e Arthur Kochem
+Autores: Bruno Konzen e Arthur Kochem.
 
 # Blackjack Game 🎲
 Bem-vindo ao projeto All-Paradise-In! Este é um jogo de Blackjack interativo construído usando HTML, CSS e JavaScript. O objetivo do jogo é vencer o dealer alcançando uma pontuação o mais próximo possível de 21 sem ultrapassar.
