@@ -56,7 +56,7 @@ function startGame(rounds) {
   dealInitialCards();
   playerScore = calculateScore(playerHand);
   dealerScore = calculateScore(dealerHand);
-  updateUI(); // Certificar-se de que a UI é atualizada e os botões est?o vis?veis
+  updateUI();
 }
 
 function dealInitialCards() {
@@ -108,6 +108,7 @@ function updateUI() {
   document.getElementById('dealer-score').textContent = `Dealer Score: ${dealerScore}`;
   document.getElementById('sequence-wins').style.backgroundColor = 'rgba(128, 128, 128, 0.8)';
   document.getElementById('sequence-wins').style.color = 'white';
+  document.getElementById('sequence-wins').textContent = sequenceWins;
   updateLifeBar();
   toggleActionButtons(!gameOver);
 }
@@ -140,7 +141,7 @@ function hit() {
     updateUI();
     if (playerScore > 21) {
       gameOver = true;
-      sequenceWins = 0; // Reiniciar sequ?ncia de vitórias ao perder
+      sequenceWins = 0;
       localStorage.setItem('sequenceWins', sequenceWins);
       document.getElementById('sequence-wins').textContent = sequenceWins;
       decideWinner();
@@ -154,18 +155,18 @@ function stand() {
       dealerHand.push(deck.pop());
       dealerScore = calculateScore(dealerHand);
     }
-    gameOver = true; // Marcar o jogo como terminado
-    updateUI(); // Atualizar a interface do usu?rio
-    decideWinner(); // Decidir o vencedor
+    gameOver = true;
+    updateUI();
+    decideWinner();
   }
 }
 
 function decideWinner() {
   let winner;
-  let messageColor = 'green'; // Cor padr?o para vitória do jogador
+  let messageColor = 'green';
   if (playerScore > 21) {
     winner = 'Dealer Wins!';
-    messageColor = 'red'; // O dealer ganha se o jogador estourar 21
+    messageColor = 'red';
     dealerWins++;
     roundResults[currentRound] = 'lose';
   } else if (dealerScore > 21 || playerScore > dealerScore) {
@@ -174,13 +175,25 @@ function decideWinner() {
     roundResults[currentRound] = 'win';
   } else if (dealerScore > playerScore) {
     winner = 'Dealer Wins!';
-    messageColor = 'red'; // O dealer ganha se tiver uma pontua??o maior
+    messageColor = 'red';
     dealerWins++;
     roundResults[currentRound] = 'lose';
   } else {
-    winner = 'Tie!'; // Empate
-    messageColor = 'gray'; // Cor para empate
+    winner = 'Tie!';
+    messageColor = 'gray';
     roundResults[currentRound] = 'tie';
+    displayEndGameMessage(winner, messageColor);
+
+    setTimeout(() => {
+      gameOver = false;
+      playerHand = [];
+      dealerHand = [];
+      dealInitialCards();
+      playerScore = calculateScore(playerHand);
+      dealerScore = calculateScore(dealerHand);
+      updateUI();
+    }, 2000);
+    return;
   }
 
   displayEndGameMessage(winner, messageColor);
@@ -208,7 +221,7 @@ function decideWinner() {
       updateLeaderboard(currentUser.name, sequenceWins);
       document.getElementById('new-series-button').classList.remove('hidden');
     } else {
-      sequenceWins = 0; // Reiniciar sequ?ncia de vitórias ao perder a série
+      sequenceWins = 0;
       localStorage.setItem('sequenceWins', sequenceWins);
       document.getElementById('sequence-wins').textContent = sequenceWins;
       document.getElementById('restart-button').classList.remove('hidden');
@@ -230,7 +243,7 @@ function endSeries(message, color, playerWon) {
   }
   
   document.getElementById('menu-button').classList.remove('hidden');
-  document.getElementById('next-round-button').classList.add('hidden'); // Esconder o bot?o de próxima rodada
+  document.getElementById('next-round-button').classList.add('hidden');
   toggleActionButtons(false);
 }
 
@@ -238,15 +251,14 @@ function displayEndGameMessage(winner, color) {
   const messageBox = document.getElementById('game-message');
   messageBox.textContent = winner;
   messageBox.style.display = 'block';
-  messageBox.style.color = color; // Ajustar a cor do texto
-  messageBox.style.backgroundColor = 'transparent'; // Remover o fundo do message box
-  messageBox.style.textAlign = 'center'; // Centralizar o texto
-  messageBox.style.position = 'fixed'; // Posi??o fixa
-  messageBox.style.top = '20%'; // Ajustar para a posi??o em cima
-  messageBox.style.left = '50%'; // Centralizar horizontalmente
-  messageBox.style.transform = 'translate(-50%, -20%)'; // Ajustar para centraliza??o
+  messageBox.style.color = color;
+  messageBox.style.backgroundColor = 'transparent';
+  messageBox.style.textAlign = 'center';
+  messageBox.style.position = 'fixed';
+  messageBox.style.top = '20%';
+  messageBox.style.left = '50%';
+  messageBox.style.transform = 'translate(-50%, -20%)';
 
-  // Mostrar os botões de próxima rodada, rein?cio e menu conforme necess?rio
   if (totalRounds === 1) {
     if (winner === 'Player Wins!') {
       document.getElementById('new-series-button').classList.remove('hidden');
@@ -256,7 +268,7 @@ function displayEndGameMessage(winner, color) {
     document.getElementById('menu-button').classList.remove('hidden');
   } else {
     if (currentRound < totalRounds - 1) {
-      if (winner !== 'Dealer Wins!') {  // Adicionado para verificar se o jogador n?o perdeu a partida
+      if (winner !== 'Dealer Wins!') {
         document.getElementById('next-round-button').classList.remove('hidden');
       }
       document.getElementById('menu-button').classList.remove('hidden');
@@ -270,12 +282,11 @@ function displayEndGameMessage(winner, color) {
     }
   }
 
-  // Remover os botões de HIT e STAND
   toggleActionButtons(false);
 }
 
 document.getElementById('restart-button').addEventListener('click', function() {
-  sequenceWins = 0; // Reiniciar sequ?ncia de vitórias ao reiniciar
+  sequenceWins = 0;
   localStorage.setItem('sequenceWins', sequenceWins);
   document.getElementById('sequence-wins').textContent = sequenceWins;
   startGame(totalRounds);
@@ -287,9 +298,9 @@ document.getElementById('restart-button').addEventListener('click', function() {
 });
 
 document.getElementById('menu-button').addEventListener('click', function() {
-  sequenceWins = 0; // Reiniciar sequ?ncia de vitórias
+  sequenceWins = 0;
   localStorage.setItem('sequenceWins', sequenceWins);
-  window.location.href = 'menu.html';
+  window.location.href = 'rounds.html';
 });
 
 document.getElementById('new-series-button').addEventListener('click', function() {
@@ -310,7 +321,7 @@ document.getElementById('next-round-button').addEventListener('click', function(
   dealInitialCards();
   playerScore = calculateScore(playerHand);
   dealerScore = calculateScore(dealerHand);
-  updateUI(); // Atualizar a UI e assegurar que os botões est?o vis?veis
+  updateUI();
   document.getElementById('next-round-button').classList.add('hidden');
   document.getElementById('game-message').style.display = 'none';
 });
