@@ -1,9 +1,18 @@
 ﻿const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const { addUser, getUser } = require('./database');
+const { addUser, getUser, getAllUsers } = require('./database');
+const { getUsersByScore } = require('./database'); // This path must correctly point to your database.js file
+const db = require('./database');
+console.log(db); // This should show the exported functions from database.js
+
 
 let mainWindow;
 let gameWindow;
+
+
+
+// Other parts of your main.js
+
 
 function createMainWindow() {
     mainWindow = new BrowserWindow({
@@ -17,7 +26,6 @@ function createMainWindow() {
         }
     });
     mainWindow.loadFile('login.html');
-
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
@@ -35,51 +43,51 @@ function createGameWindow() {
         }
     });
     gameWindow.loadFile('renderer.html');
-
     gameWindow.on('closed', () => {
         gameWindow = null;
     });
 }
 
-app.whenReady().then(() => {
-    ipcMain.handle('add-user', async (event, username, password) => {
-        return new Promise((resolve, reject) => {
-            addUser(username, password, (err, userId) => {
-                if (err) {
-                    reject({ error: err.message });
-                } else {
-                    resolve({ userId });
-                }
-            });
-        });
-    });
+app.whenReady().then(createMainWindow);
 
-    ipcMain.handle('get-user', async (event, username) => {
-        return new Promise((resolve, reject) => {
-            getUser(username, (err, user) => {
-                if (err) {
-                    reject({ error: err.message });
-                } else {
-                    resolve(user);
-                }
-            });
-        });
-    });
+ipcMain.handle('add-user', async (event, username, password) => {
+    try {
+        const userId = await addUser(username, password);
+        return { userId };
+    } catch (error) {
+        console.error('Error adding user:', error);
+        throw new Error(`Failed to add user: ${error.message}`);
+    }
+});
 
-    ipcMain.on('start-game', () => {
-        if (mainWindow) {
-            mainWindow.close();
-        }
-        createGameWindow();
-    });
+ipcMain.handle('get-user', async (event, username) => {
+    try {
+        const user = await getUser(username);
+        return user;
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        throw new Error(`Failed to fetch user: ${error.message}`);
+    }
+});
 
-    ipcMain.on('open-menu', () => {
-        if (mainWindow) {
-            mainWindow.loadFile('menu.html');
-        }
-    });
 
-    createMainWindow();
+ipcMain.handle('get-users-by-score', async (event, type) => {
+    try {
+        const users = await getUsersByScore(type);
+        return users;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        throw new Error(`Failed to get users: ${error.message}`);
+    }
+});
+
+ipcMain.on('open-menu', () => {
+    if (mainWindow) {
+        mainWindow.loadFile('menu.html');
+    } else {
+        createMainWindow();
+        mainWindow.loadFile('menu.html');
+    }
 });
 
 app.on('window-all-closed', () => {

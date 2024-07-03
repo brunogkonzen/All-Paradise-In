@@ -1,41 +1,13 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>All Paradise In</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron App</title>
 </head>
 <body>
-  <div id="wins-container" class="hidden">
-    <h3>Player Wins: <span id="player-wins">0</span></h3>
-    <h3>Dealer Wins: <span id="dealer-wins">0</span></h3>
-  </div>
-  <div id="sequence-container" class="hidden">
-    <h3>Sequence of Wins: <span id="sequence-wins">0</span></h3>
-  </div>
-  <div id="game-container" class="hidden">
-    <h2>Player's Hand</h2>
-    <div id="player-hand" class="hand"></div>
-    <p id="player-score">Player Score: 0</p>
-    <h2>Dealer's Hand</h2>
-    <div id="dealer-hand" class="hand"></div>
-    <p id="dealer-score">Dealer Score: 0</p>
-    <div>
-      <button id="hit-button">Hit</button>
-      <button id="stand-button">Stand</button>
-    </div>
-    <p id="message"></p>
-  </div>
-  <div id="overlay" class="overlay hidden">
-    <div class="result-content">
-      <div id="result-message" class="result-message">Winner!</div>
-      <button id="next-round-button" class="hidden">Próxima Partida</button>
-      <button id="restart-button" class="hidden">Restart</button>
-      <button id="menu-button" class="hidden">Menu</button>
-    </div>
-  </div>
-  <script src="renderer.js"></script>
+    <h1>Welcome to Electron</h1>
+    <button id="load-users">Load Users</button>
+    <script src="renderer.js"></script>
 </body>
 </html>
