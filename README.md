@@ -5,26 +5,26 @@ Autores: Bruno Konzen e Arthur Kochem.
 Bem-vindo ao projeto All-Paradise-In! Este é um jogo de Blackjack interativo construído usando HTML, CSS e JavaScript. O objetivo do jogo é vencer o dealer alcançando uma pontuação o mais próximo possível de 21 sem ultrapassar.
 
 # Funcionalidades ✨
-Jogo de Blackjack Clássico: Jogue uma partida de Blackjack contra o dealer.  
-Escolha de Rounds: Opte por jogar melhor de 1, 3 ou 7 rounds.  
-Sequência de Vitórias: Veja quantas vitórias consecutivas você consegue obter.  
-Leaderboard: Veja as melhores sequências de vitórias armazenadas no Local Storage.  
-Interface Intuitiva: Uma interface amigável com um design visualmente atraente.  
-Responsivo: Adaptável para diversos tamanhos de tela.  
+**Jogo de Blackjack Clássico:** Jogue uma partida de Blackjack contra o dealer.  
+**Escolha de Rounds:** Opte por jogar melhor de 1, 3 ou 7 rounds.  
+**Sequência de Vitórias:** Veja quantas vitórias consecutivas você consegue obter.  
+**Leaderboard:** Veja as melhores sequências de vitórias armazenadas no Local Storage.  
+**Interface Intuitiva:** Uma interface amigável com um design visualmente atraente.  
+**Responsivo:** Adaptável para diversos tamanhos de tela.  
 
 # Tecnologias Utilizadas 📄
-- HTML
-- CSS
-- JavaScript
-- Electron (para criar aplicativos desktop)
+_- HTML_  
+_- CSS_  
+_- JavaScript_  
+_- Electron (para criar aplicativos desktop)_  
 
 # Como Jogar 🎮
-Página de Login: Faça login para começar a jogar.
-Menu Principal: Escolha entre iniciar um novo jogo ou visualizar o leaderboard.
-Escolha de Rounds: Selecione o número de rounds (melhor de 1, 3 ou 7).
-Jogo: Utilize os botões "Pedir" para pedir uma carta e "Segurar" para manter sua mão.
-Resultado: Veja se você venceu ou perdeu contra o dealer.
-Próxima Rodada: Caso esteja jogando melhor de 3 ou 7, continue para a próxima rodada até decidir o vencedor da série.
+**Página de Login:** Faça login para começar a jogar.  
+**Menu Principal:** Escolha entre iniciar um novo jogo ou visualizar o leaderboard.  
+**Escolha de Rounds:** Selecione o número de rounds (melhor de 1, 3 ou 7).  
+**Jogo:** Utilize os botões "Pedir" para pedir uma carta e "Segurar" para manter sua mão.  
+**Resultado:** Veja se você venceu ou perdeu contra o dealer.  
+**Próxima Rodada:** Caso esteja jogando melhor de 3 ou 7, continue para a próxima rodada até decidir o vencedor da série.  
 
 # Instalação 🚀
 Siga os passos abaixo para configurar o projeto localmente e criar executáveis para macOS, Linux e Windows:
