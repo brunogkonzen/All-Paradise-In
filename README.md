@@ -29,66 +29,60 @@ _- Electron (para criar aplicativos desktop)_
 # Instalação 🚀
 Siga os passos abaixo para configurar o projeto localmente e criar executáveis para macOS, Linux e Windows:
 
-# Pré-requisitos
-Node.js (v12 ou superior)
+# **_Pré-requisitos_**
+Node.js (v12 ou superior)  
 npm (v6 ou superior)
 
-# Passos
-1 - Clone o repositório:
+# _Passos_
+**1 -** Clone o repositório:
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/9b94d584-528c-4451-ad0e-e40572648331)
+git clone https://github.com/seu-usuario/blackjack-game.git  
 
-git clone https://github.com/seu-usuario/blackjack-game.git
 
-
-2 - Navegue até o diretório do projeto:
+**2 -** Navegue até o diretório do projeto:
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/ec26bb0b-1c60-4874-891e-76897a07ce04)
+cd blackjack-game  
 
-cd blackjack-game
 
-
-3 - Instale as dependências:
+**3 -** Instale as dependências:
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/2380120d-c752-4039-8f69-8ac081718624)
-
-npm install
+npm install  
 
 
 # Desenvolvimento
-I - Para rodar o aplicativo em modo de desenvolvimento:
+Para rodar o aplicativo em modo de desenvolvimento:
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/5eb3be5a-745b-4ba6-965d-7a148d27da2a)
-
-npm start
+npm start  
 
 
 # Construção
 Para criar os executáveis para todas as plataformas:
 
-1 - Instale o Electron Packager:
+**1 -** Instale o Electron Packager:
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/49188e53-1ebf-4170-bce0-afc0fc1a2b4c)
+npm install -g electron-packager  
 
-npm install -g electron-packager
 
-
-2 - Execute o seguinte comando para empacotar o aplicativo:
+**2 -** Execute o seguinte comando para empacotar o aplicativo:
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/80115ef6-af73-4ccb-a86d-b1c41b913925)
-
 electron-packager . BlackjackGame --platform=darwin,linux,win32 --arch=x64 --out=dist --overwrite
 
 
-Isso criará executáveis para macOS, Linux e Windows no diretório dist.
+_Isso criará executáveis para macOS, Linux e Windows no diretório dist._  
 
-Executando os Executáveis
-macOS: Navegue até dist/BlackjackGame-darwin-x64 e abra BlackjackGame.app.
-Linux: Navegue até dist/BlackjackGame-linux-x64 e execute ./BlackjackGame.
-Windows: Navegue até dist/BlackjackGame-win32-x64 e execute BlackjackGame.exe.
+_Executando os Executáveis_  
+**macOS:** Navegue até dist/BlackjackGame-darwin-x64 e abra BlackjackGame.app.  
+**Linux:** Navegue até dist/BlackjackGame-linux-x64 e execute ./BlackjackGame.  
+**Windows:** Navegue até dist/BlackjackGame-win32-x64 e execute BlackjackGame.exe.  
 
 # Estrutura do Projeto 📂
-![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/be50bd3b-6561-496f-83c7-fe3126027032)
+![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/be50bd3b-6561-496f-83c7-fe3126027032)  
 
 
 # Licença 📄
