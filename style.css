@@ -64,15 +64,44 @@ button:hover {
   background-color: #45a049;
 }
 
+.round-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.round-button:hover {
+  background-color: #45a049;
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.8); /* Ajustar para se adequar ao fundo */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  color: white; /* Ajustar para texto branco */
+  min-width: 300px;
+}
+
 .message-box {
   margin-top: 10px;
   font-family: 'Press Start 2P', cursive;
-  background-color: transparent; /* Alterado para transparente */
+  background-color: transparent;
   padding: 10px;
   border-radius: 5px;
   display: none;
   width: auto;
   text-align: center;
+  color: white; /* Ajustar para texto branco */
 }
 
 .hand {
@@ -92,6 +121,18 @@ button:hover {
   align-items: center;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.75);
 }
 
 .overlay {
@@ -125,4 +166,31 @@ button:hover {
 
 .message-animation {
   animation: fade 1s ease-out;
+}
+
+.life-bar {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.life-bar .life-square {
+  width: 40px;  /* Aumentei o tamanho para acomodar o n?mero da rodada */
+  height: 40px;
+  margin: 0 5px;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Cor do texto */
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+}
+
+.life-bar .life-square.won {
+  background-color: green;
+}
+
+.life-bar .life-square.lost {
+  background-color: red;
 }

@@ -20,6 +20,7 @@ let currentRound = 0;
 let playerWins = 0;
 let dealerWins = 0;
 let sequenceWins = 0;
+let roundResults = [];
 
 function createDeck() {
   const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
@@ -45,6 +46,7 @@ function startGame(rounds) {
   playerWins = 0;
   dealerWins = 0;
   sequenceWins = parseInt(localStorage.getItem('sequenceWins') || 0);
+  roundResults = [];
   gameOver = false;
 
   createDeck();
@@ -54,7 +56,7 @@ function startGame(rounds) {
   dealInitialCards();
   playerScore = calculateScore(playerHand);
   dealerScore = calculateScore(dealerHand);
-  updateUI();
+  updateUI(); // Certificar-se de que a UI é atualizada e os botões est?o vis?veis
 }
 
 function dealInitialCards() {
@@ -104,9 +106,26 @@ function updateUI() {
   displayCards();
   document.getElementById('player-score').textContent = `Player Score: ${playerScore}`;
   document.getElementById('dealer-score').textContent = `Dealer Score: ${dealerScore}`;
-  document.getElementById('sequence-wins').style.backgroundColor = 'rgba(128, 128, 128, 0.8)'; // Fundo cinza
-  document.getElementById('sequence-wins').style.color = 'white'; // Texto em branco
+  document.getElementById('sequence-wins').style.backgroundColor = 'rgba(128, 128, 128, 0.8)';
+  document.getElementById('sequence-wins').style.color = 'white';
+  updateLifeBar();
   toggleActionButtons(!gameOver);
+}
+
+function updateLifeBar() {
+  const lifeBar = document.getElementById('player-wins-container');
+  lifeBar.innerHTML = '';
+  for (let i = 0; i < totalRounds; i++) {
+    const lifeSquare = document.createElement('div');
+    lifeSquare.className = 'life-square';
+    lifeSquare.textContent = i + 1;
+    if (roundResults[i] === 'win') {
+      lifeSquare.classList.add('won');
+    } else if (roundResults[i] === 'lose') {
+      lifeSquare.classList.add('lost');
+    }
+    lifeBar.appendChild(lifeSquare);
+  }
 }
 
 function toggleActionButtons(show) {
@@ -135,9 +154,9 @@ function stand() {
       dealerHand.push(deck.pop());
       dealerScore = calculateScore(dealerHand);
     }
-    updateUI();
-    gameOver = true;
-    decideWinner();
+    gameOver = true; // Marcar o jogo como terminado
+    updateUI(); // Atualizar a interface do usu?rio
+    decideWinner(); // Decidir o vencedor
   }
 }
 
@@ -148,28 +167,45 @@ function decideWinner() {
     winner = 'Dealer Wins!';
     messageColor = 'red'; // O dealer ganha se o jogador estourar 21
     dealerWins++;
+    roundResults[currentRound] = 'lose';
   } else if (dealerScore > 21 || playerScore > dealerScore) {
     winner = 'Player Wins!';
     playerWins++;
+    roundResults[currentRound] = 'win';
   } else if (dealerScore > playerScore) {
     winner = 'Dealer Wins!';
     messageColor = 'red'; // O dealer ganha se tiver uma pontua??o maior
     dealerWins++;
+    roundResults[currentRound] = 'lose';
   } else {
     winner = 'Tie!'; // Empate
     messageColor = 'gray'; // Cor para empate
+    roundResults[currentRound] = 'tie';
   }
 
   displayEndGameMessage(winner, messageColor);
 
+  if ((totalRounds === 3 && dealerWins === 2) || (totalRounds === 5 && dealerWins === 2) || (totalRounds === 7 && dealerWins === 4)) {
+    endSeries('Dealer Wins the Series!', 'red', false);
+    return;
+  }
+
+  if ((totalRounds === 3 && playerWins === 2) || (totalRounds === 5 && playerWins === 3) || (totalRounds === 7 && playerWins === 4)) {
+    endSeries('Player Wins the Series!', 'green', true);
+    return;
+  }
+
   if (currentRound < totalRounds - 1) {
     currentRound++;
     document.getElementById('next-round-button').classList.remove('hidden');
+    document.getElementById('menu-button').classList.remove('hidden');
   } else {
     if (playerWins > dealerWins) {
       sequenceWins++;
       localStorage.setItem('sequenceWins', sequenceWins);
       document.getElementById('sequence-wins').textContent = sequenceWins;
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      updateLeaderboard(currentUser.name, sequenceWins);
       document.getElementById('new-series-button').classList.remove('hidden');
     } else {
       sequenceWins = 0; // Reiniciar sequ?ncia de vitórias ao perder a série
@@ -179,6 +215,23 @@ function decideWinner() {
     }
     document.getElementById('menu-button').classList.remove('hidden');
   }
+}
+
+function endSeries(message, color, playerWon) {
+  const messageBox = document.getElementById('game-message');
+  messageBox.textContent = message;
+  messageBox.style.color = color;
+  messageBox.style.display = 'block';
+
+  if (playerWon) {
+    document.getElementById('new-series-button').classList.remove('hidden');
+  } else {
+    document.getElementById('restart-button').classList.remove('hidden');
+  }
+  
+  document.getElementById('menu-button').classList.remove('hidden');
+  document.getElementById('next-round-button').classList.add('hidden'); // Esconder o bot?o de próxima rodada
+  toggleActionButtons(false);
 }
 
 function displayEndGameMessage(winner, color) {
@@ -193,9 +246,32 @@ function displayEndGameMessage(winner, color) {
   messageBox.style.left = '50%'; // Centralizar horizontalmente
   messageBox.style.transform = 'translate(-50%, -20%)'; // Ajustar para centraliza??o
 
+  // Mostrar os botões de próxima rodada, rein?cio e menu conforme necess?rio
+  if (totalRounds === 1) {
+    if (winner === 'Player Wins!') {
+      document.getElementById('new-series-button').classList.remove('hidden');
+    } else {
+      document.getElementById('restart-button').classList.remove('hidden');
+    }
+    document.getElementById('menu-button').classList.remove('hidden');
+  } else {
+    if (currentRound < totalRounds - 1) {
+      if (winner !== 'Dealer Wins!') {  // Adicionado para verificar se o jogador n?o perdeu a partida
+        document.getElementById('next-round-button').classList.remove('hidden');
+      }
+      document.getElementById('menu-button').classList.remove('hidden');
+    } else {
+      if (playerWins > dealerWins) {
+        document.getElementById('new-series-button').classList.remove('hidden');
+      } else {
+        document.getElementById('restart-button').classList.remove('hidden');
+      }
+      document.getElementById('menu-button').classList.remove('hidden');
+    }
+  }
+
   // Remover os botões de HIT e STAND
-  document.getElementById('hit-button').classList.add('hidden');
-  document.getElementById('stand-button').classList.add('hidden');
+  toggleActionButtons(false);
 }
 
 document.getElementById('restart-button').addEventListener('click', function() {
@@ -234,7 +310,7 @@ document.getElementById('next-round-button').addEventListener('click', function(
   dealInitialCards();
   playerScore = calculateScore(playerHand);
   dealerScore = calculateScore(dealerHand);
-  updateUI();
+  updateUI(); // Atualizar a UI e assegurar que os botões est?o vis?veis
   document.getElementById('next-round-button').classList.add('hidden');
   document.getElementById('game-message').style.display = 'none';
 });

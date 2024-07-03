@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Menu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="icon.png">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Menu</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="menu-container" class="container">
-        <h1>Choose Match Type</h1>
-        <button class="menu-button" data-rounds="1">Best of 1</button>
-        <button class="menu-button" data-rounds="3">Best of 3</button>
-        <button class="menu-button" data-rounds="7">Best of 7</button>
-        <p id="message-box" class="message-box hidden"></p> <!-- Caixa de mensagem, inicialmente escondida -->
-    </div>
-    <script src="menu.js"></script>
+  <div id="main-menu" class="menu-container">
+    <h1>Game Menu</h1>
+    <button id="start-game-button">START GAME</button>
+    <button id="logout-button">Logout</button>
+  </div>
+  <script src="menu.js"></script>
 </body>
 </html>

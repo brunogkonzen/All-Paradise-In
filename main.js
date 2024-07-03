@@ -2,8 +2,11 @@
 const path = require('path');
 const { addUser, getUser } = require('./database');
 
-function createWindow() {
-    const win = new BrowserWindow({
+let mainWindow;
+let gameWindow;
+
+function createMainWindow() {
+    mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         icon: path.join(__dirname, 'icon.png'),
@@ -13,7 +16,29 @@ function createWindow() {
             enableRemoteModule: false
         }
     });
-    win.loadFile('login.html');
+    mainWindow.loadFile('login.html');
+
+    mainWindow.on('closed', () => {
+        mainWindow = null;
+    });
+}
+
+function createGameWindow() {
+    gameWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        icon: path.join(__dirname, 'icon.png'),
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js'),
+            contextIsolation: true,
+            enableRemoteModule: false
+        }
+    });
+    gameWindow.loadFile('renderer.html');
+
+    gameWindow.on('closed', () => {
+        gameWindow = null;
+    });
 }
 
 app.whenReady().then(() => {
@@ -41,7 +66,20 @@ app.whenReady().then(() => {
         });
     });
 
-    createWindow();
+    ipcMain.on('start-game', () => {
+        if (mainWindow) {
+            mainWindow.close();
+        }
+        createGameWindow();
+    });
+
+    ipcMain.on('open-menu', () => {
+        if (mainWindow) {
+            mainWindow.loadFile('menu.html');
+        }
+    });
+
+    createMainWindow();
 });
 
 app.on('window-all-closed', () => {
@@ -52,6 +90,6 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
+        createMainWindow();
     }
 });
