@@ -35,26 +35,50 @@ npm (v6 ou superior)
 
 # Passos
 1 - Clone o repositório:
+
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/9b94d584-528c-4451-ad0e-e40572648331)
 
+git clone https://github.com/seu-usuario/blackjack-game.git
+
+
 2 - Navegue até o diretório do projeto:
+
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/ec26bb0b-1c60-4874-891e-76897a07ce04)
 
+cd blackjack-game
+
+
 3 - Instale as dependências:
+
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/2380120d-c752-4039-8f69-8ac081718624)
+
+npm install
+
 
 # Desenvolvimento
 I - Para rodar o aplicativo em modo de desenvolvimento:
+
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/5eb3be5a-745b-4ba6-965d-7a148d27da2a)
+
+npm start
+
 
 # Construção
 Para criar os executáveis para todas as plataformas:
+
 1 - Instale o Electron Packager:
+
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/49188e53-1ebf-4170-bce0-afc0fc1a2b4c)
 
+npm install -g electron-packager
+
+
 2 - Execute o seguinte comando para empacotar o aplicativo:
+
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/80115ef6-af73-4ccb-a86d-b1c41b913925)
+
 electron-packager . BlackjackGame --platform=darwin,linux,win32 --arch=x64 --out=dist --overwrite
+
 
 Isso criará executáveis para macOS, Linux e Windows no diretório dist.
 
@@ -64,26 +88,8 @@ Linux: Navegue até dist/BlackjackGame-linux-x64 e execute ./BlackjackGame.
 Windows: Navegue até dist/BlackjackGame-win32-x64 e execute BlackjackGame.exe.
 
 # Estrutura do Projeto 📂
-![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/3d91af5e-05f9-40d1-95c7-912ab7e5be86)
+![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/be50bd3b-6561-496f-83c7-fe3126027032)
 
-├── public
-│   ├── cards              # Imagens das cartas
-│   ├── background.jpeg    # Imagem de fundo
-│   └── icon.png           # Ícone do jogo
-├── dist                   # Diretório de saída para os executáveis
-├── index.html             # Página inicial do jogo
-├── menu.html              # Página do menu principal
-├── login.html             # Página de login
-├── leaderboard.html       # Página do leaderboard
-├── style.css              # Arquivo de estilos
-├── main.js                # Script principal do Electron
-├── renderer.js            # Script de renderização do jogo
-├── preload.js             # Script de pré-carregamento
-├── menu.js                # Script do menu principal
-├── login.js               # Script de login
-├── leaderboard.js         # Script do leaderboard
-├── package.json           # Arquivo de configuração do npm
-└── README.md              # Este arquivo
 
 # Licença 📄
 Este projeto está licenciado sob a MIT License.
@@ -91,8 +97,8 @@ Este projeto está licenciado sob a MIT License.
 # Agradecimentos 🙌
 Agradecemos ao prof. Roberson (antes coordenador) e a prof. Fran (agora coordenadora)! Espero que se divirtam jogando tanto quanto eu e Arthur nos divertimos desenvolvendo.
 
-Capturas de Tela 📸
-Menu Principal
+# Capturas de Tela 
+# Menu Principal
 
-Jogo
+# Jogo
 
