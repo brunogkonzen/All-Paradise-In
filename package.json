@@ -24,7 +24,7 @@
   },
  "build": {
   "appId": "com.example.app",
-  "productName": "MyApp",
+  "productName": "All Paradise In",
   "directories": {
     "output": "dist"
   },
