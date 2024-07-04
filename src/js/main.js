@@ -10,7 +10,7 @@ function createMainWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        icon: path.join(__dirname, '../../assets/icon.ico'),
+        icon: path.join(__dirname, '../../assets/icon/icon.png'),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
@@ -27,7 +27,7 @@ function createGameWindow() {
     gameWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        icon: path.join(__dirname, '../../assets/icon.ico'),
+        icon: path.join(__dirname, '../../assets/icon/icon.png'),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,

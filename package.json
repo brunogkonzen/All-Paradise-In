@@ -23,15 +23,11 @@
     "electron-rebuild": "^3.2.5"
   },
  "build": {
-  "appId": "com.example.all-paradise-in",
-  "productName": "All Paradise In",
+  "appId": "com.example.app",
+  "productName": "MyApp",
   "directories": {
     "output": "dist"
   },
-  "files": [
-    "src/**/*",
-    "package.json"
-  ],
   "win": {
     "icon": "assets/icon/icon.ico"
   },
