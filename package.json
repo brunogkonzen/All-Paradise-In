@@ -20,21 +20,22 @@
   "devDependencies": {
     "electron": "^16.0.0",
     "electron-builder": "^22.11.7",
-    "electron-rebuild": "^3.2.5"
+    "electron-rebuild": "^3.2.9"
   },
- "build": {
-  "appId": "com.example.app",
-  "productName": "All Paradise In",
-  "directories": {
-    "output": "dist"
-  },
-  "win": {
-    "icon": "assets/icon/icon.ico"
-  },
-  "mac": {
-    "icon": "assets/icon/icon.icns"
-  },
-  "linux": {
-    "icon": "assets/icon/icon.png"
+  "build": {
+    "appId": "com.example.app",
+    "productName": "All Paradise In",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "icon": "assets/icon/icon.ico"
+    },
+    "mac": {
+      "icon": "assets/icon/icon.icns"
+    },
+    "linux": {
+      "icon": "assets/icon/icon.png"
+    }
   }
-}}
+}

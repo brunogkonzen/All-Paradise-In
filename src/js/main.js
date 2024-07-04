@@ -10,6 +10,7 @@ function createMainWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        kiosk: true,
         icon: path.join(__dirname, '../../assets/icon/icon.png'),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
@@ -21,12 +22,14 @@ function createMainWindow() {
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
+    mainWindow.setMenu(null);
 }
 
 function createGameWindow() {
     gameWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        kiosk: true,
         icon: path.join(__dirname, '../../assets/icon/icon.png'),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
@@ -37,6 +40,7 @@ function createGameWindow() {
     gameWindow.loadFile(path.join(__dirname, '../html/renderer.html'));
     gameWindow.on('closed', () => {
         gameWindow = null;
+        mainWindow.setMenu(null);
     });
 }
 
