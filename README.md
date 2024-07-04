@@ -8,7 +8,6 @@ Bem-vindo ao projeto All-Paradise-In! Este é um jogo de Blackjack interativo co
 **Jogo de Blackjack Clássico:** Jogue uma partida de Blackjack contra o dealer.  
 **Escolha de Rounds:** Opte por jogar melhor de 1, 3 ou 7 rounds.  
 **Sequência de Vitórias:** Veja quantas vitórias consecutivas você consegue obter.  
-**Leaderboard:** Veja as melhores sequências de vitórias armazenadas no Local Storage.  
 **Interface Intuitiva:** Uma interface amigável com um design visualmente atraente.  
 **Responsivo:** Adaptável para diversos tamanhos de tela.  
 
@@ -43,7 +42,7 @@ git clone https://github.com/seu-usuario/blackjack-game.git
 **2 -** Navegue até o diretório do projeto:
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/ec26bb0b-1c60-4874-891e-76897a07ce04)
-cd blackjack-game  
+cd _seurepositorio_
 
 
 **3 -** Instale as dependências:
@@ -69,9 +68,6 @@ npm install -g electron-packager
 
 
 **2 -** Execute o seguinte comando para empacotar o aplicativo:
-
-![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/80115ef6-af73-4ccb-a86d-b1c41b913925)
-electron-packager . BlackjackGame --platform=darwin,linux,win32 --arch=x64 --out=dist --overwrite
 
 
 _Isso criará executáveis para macOS, Linux e Windows no diretório dist._  
