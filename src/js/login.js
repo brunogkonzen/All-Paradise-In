@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const loginButton = document.getElementById('login-button');
+    const registerButton = document.getElementById('register-button');
+    const closeButton = document.getElementById('close-button');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     const messageBox = document.getElementById('message-box');
@@ -14,14 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (user) {
             messageBox.textContent = 'Login successful!';
             messageBox.style.color = 'green';
-            messageBox.style.display = 'block'; // Mostrar a mensagem
+            messageBox.style.display = 'block';
             setTimeout(() => {
                 window.location.href = 'menu.html';
             }, 2000);
         } else {
             messageBox.textContent = 'Login failed. Incorrect username or password.';
             messageBox.style.color = 'red';
-            messageBox.style.display = 'block'; // Mostrar a mensagem
+            messageBox.style.display = 'block';
             usernameInput.value = '';
             passwordInput.value = '';
             usernameInput.disabled = false;
@@ -30,9 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    const registerButton = document.getElementById('register-button');
     registerButton.addEventListener('click', function() {
         window.location.href = 'register.html';
+    });
+
+    closeButton.addEventListener('click', function() {
+        window.close();
     });
 
     usernameInput.disabled = false;

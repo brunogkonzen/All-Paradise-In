@@ -2,13 +2,44 @@
   "name": "all-paradise-in",
   "version": "1.0.0",
   "description": "Simple Blackjack game using Electron",
-  "main": "main.js",
+  "main": "src/js/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder build --win",
+    "build:mac": "electron-builder build --mac",
+    "build:linux": "electron-builder build --linux"
   },
   "author": "Arthur K e Bruno",
   "license": "MIT",
   "dependencies": {
-    "electron": "^16.0.0"
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "electron": "^16.0.0",
+    "electron-builder": "^22.11.7"
+  },
+  "build": {
+    "appId": "com.example.all-paradise-in",
+    "productName": "All Paradise In",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "src/assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "src/assets/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "src/assets"
+    }
   }
 }

@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
             messageBox.style.display = 'block';
 
             setTimeout(() => {
-                window.location.href = 'renderer.html'; // Carregar a tela de jogo
+                window.location.href = 'renderer.html';
             }, 2000);
         });
     });
 
     backToMenuButton.addEventListener('click', function() {
-        window.location.href = 'menu.html'; // Redirecionar para o menu
+        window.location.href = 'menu.html'; 
     });
 });
