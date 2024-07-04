@@ -1,0 +1,14 @@
+{
+  "name": "all-paradise-in",
+  "version": "1.0.0",
+  "description": "Simple Blackjack game using Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Arthur K e Bruno",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^16.0.0"
+  }
+}
