@@ -18,38 +18,38 @@ _- JavaScript_
 _- Electron (para criar aplicativos desktop)_
 
 # Plano de Testes
-Testes da Funcionalidade do Jogo de BlackJack
+**Testes da Funcionalidade do Jogo de BlackJack**
 ● Objetivo: Garantir que o jogo de poker funcione conforme esperado.
 ● Casos de Teste:
-_1. Criação e entrada em mesas de jogo.
-_2. Distribuição correta das cartas.
-_3. Turnos de jogo.
-_4. Cálculo correto dos vencedores.
-_5. Funcionalidade das ações de jogo.
-_6. Alteração de modo de jogo
-_7. aleatoriedade do Sistema
-Testes de Registro de Usuários
+1. Criação e entrada em mesas de jogo.
+2. Distribuição correta das cartas.
+3. Turnos de jogo.
+4. Cálculo correto dos vencedores.
+5. Funcionalidade das ações de jogo.
+6. Alteração de modo de jogo
+7. aleatoriedade do Sistema
+**Testes de Registro de Usuários**
 ● Objetivo: Verificar se o sistema permite o registro de novos usuários de
 forma correta e segura.
 ● Casos de Teste:
-_1. Registro com dados válidos.
-_2. Registro com email já existente.
-_3. Registro com campos obrigatórios vazios.
-Testes de Login e Autenticação
+1. Registro com dados válidos.
+2. Registro com email já existente.
+3. Registro com campos obrigatórios vazios.
+**Testes de Login e Autenticação**
 ● Objetivo: Verificar o processo de login e autenticação de usuários.
 ● Casos de Teste:
-_1. Login com credenciais corretas.
-_2. Login com senha incorreta.
-_3. Login com email não registrado.
-Testes da Interface do Usuário
+1. Login com credenciais corretas.
+2. Login com senha incorreta.
+3. Login com email não registrado.
+**Testes da Interface do Usuário**
 ● Objetivo: Avaliar a usabilidade e a responsividade da interface do usuário.
 ● Casos de Teste:
-_1. Exibição correta em diferentes dispositivos e sistemas.
-_2. Navegação intuitiva.
-_3. Feedbacks visuais em caso de erros
-_4. Feedback sobre funcionalidade do jogo
-_5. Reporte de bugs
-_6. Fluidez do aplicativo
+1. Exibição correta em diferentes dispositivos e sistemas.
+2. Navegação intuitiva.
+3. Feedbacks visuais em caso de erros
+4. Feedback sobre funcionalidade do jogo
+5. Reporte de bugs
+6. Fluidez do aplicativo
 
 # Como Jogar 🎮
 **Página de Login:** Faça login para começar a jogar.  
