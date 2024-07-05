@@ -17,7 +17,8 @@ _- CSS_
 _- JavaScript_  
 _- Electron (para criar aplicativos desktop)_
 
-# Plano de Testes
+# Plano de Testes 🕹️
+
 **Testes da Funcionalidade do Jogo de BlackJack**
 
 ● Objetivo: Garantir que o jogo de poker funcione conforme esperado.
@@ -62,7 +63,7 @@ forma correta e segura.
 5. Reporte de bugs
 6. Fluidez do aplicativo
 
-# Metodologia
+# Metodologia 📖
 
    A metodologia ágil aplicada neste projeto teve base na metodologia SCRUM,
 onde os membros do grupo dividiram de forma inteligente o projeto em pequenos
@@ -88,6 +89,46 @@ fluido o organizado o andamento do projeto.
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460109/f4c89a40-8361-46ea-9453-0a01436427f0)
 
+#Storytelling🔥
+
+João sempre foi apaixonado por desafios. Desde criança, ele adorava
+quebra-cabeças e jogos de estratégia. No entanto, nada o preparou para a emoção
+que sentiu ao se sentar pela primeira vez em uma mesa de Blackjack. A tensão no
+ar, os rostos inexpressivos dos jogadores, o tilintar das fichas... Era um mundo à
+parte.
+
+Porém ao passar do tempo, com a liberdade da vida adulta, o fascínio se
+tornou um vicio, João não conseguia mais viver longe das mesas de apostas, não
+falava mais com os amigos e gastava todas suas economias em jogos, pouco a
+pouco isso foi afastando seus melhores amigos e até mesmo familiares.
+
+Até que um dia, enquanto navegava na loja de aplicativos, João encontrou o
+"All-Paradise-In". O design elegante e as promessas de competições intensas sem
+custo algum o atraíram imediatamente. Ele baixou o aplicativo e, assim que o abriu,
+foi transportado para uma sala de Blackjack virtual cheia de jogadores de todo o
+mundo, João estava muito empolgado.
+
+O aplicativo não era apenas um jogo, era uma escola. Com tutoriais
+interativos, dicas dos melhores profissionais e análises de jogadas, João
+rapidamente se apaixonou pelo jogo. Ele passou noites e mais noites jogando,
+aprimorando suas habilidades e, eventualmente, até mesmo fazendo amigos. A
+cada partida, ele subia de ranking e conhecia pessoas diferentes.
+
+Em "All-Paradise-in", João encontrou uma comunidade vibrante de jogadores,
+onde ele podia trocar estratégias, participar de torneios ao vivo e fazer amigos de
+todo o mundo. As competições semanais e os grandes torneios mensais eram
+eventos esperados com ansiedade, onde os melhores jogadores se enfrentavam
+para ver quem era o melhor.
+
+O jogo trouxe não apenas grandes amizades, mas também a sua vida de
+volta, tornando o que era um vício em um hábito saudável. João se tornou uma
+lenda no "All-Paradise-in". Ele continuou a jogar, ensinar novos jogadores e
+participar de competições. O jogo não era mais apenas um passatempo, era uma
+parte essencial de sua vida.
+
+Você também pode viver essa emoção. "All-Paradise-in" está esperando por
+você. Baixe o aplicativo, junte-se à comunidade e veja até onde suas habilidades
+podem te levar. Conquiste a mesa, conquiste o mundo. Está pronto para o desafio?
 
 # Como Jogar 🎮
 **Página de Login:** Faça login para começar a jogar.  
