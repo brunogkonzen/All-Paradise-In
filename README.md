@@ -216,10 +216,3 @@ Este projeto está licenciado sob a MIT License.
 
 # Agradecimentos 🙌
 Agradecemos ao prof. Roberson (antes coordenador) e a prof. Fran (agora coordenadora)! Espero que se divirtam jogando tanto quanto eu e Arthur nos divertimos desenvolvendo.
-
-# Capturas de Tela 
-
-# Menu Principal
-
-# Jogo
-
