@@ -87,7 +87,8 @@ fluido o organizado o andamento do projeto.
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460109/0722080a-d6d5-492f-902f-ca00f3286e39)
 
 
-![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460109/f4c89a40-8361-46ea-9453-0a01436427f0)
+![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460109/f165934c-9993-4974-9353-06511d04d27d)
+
 
 # Diagramas 🖼️
 
