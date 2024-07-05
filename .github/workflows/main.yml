@@ -1,4 +1,4 @@
-name: Build and Release
+name: Build and Release Electron App
 
 on:
   push:
@@ -7,29 +7,56 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest]
-
+  build-windows:
+    runs-on: windows-latest
     steps:
-    - name: Check out source code
-      uses: actions/checkout@v2
-
+    - uses: actions/checkout@v2
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '16'
-
     - name: Install dependencies
       run: npm install
-
-    - name: Build and Package App
-      run: npm run dist
-
-    - name: Upload Artifacts
+    - name: Build application (Windows)
+      run: npm run build:win
+    - name: Upload Windows Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ matrix.os }}-app
-        path: dist/*
+        name: windows-app
+        path: dist/*.exe
+
+  build-mac:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - name: Install dependencies
+      run: npm install
+    - name: Build application (macOS)
+      run: npm run build:mac
+    - name: Upload macOS Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: macos-app
+        path: dist/*.dmg
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - name: Install dependencies
+      run: npm install
+    - name: Build application (Linux)
+      run: npm run build:linux
+    - name: Upload Linux Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux-app
+        path: dist/*.deb
