@@ -203,9 +203,9 @@ npm run build
 _Isso criará executáveis para macOS, Linux e Windows no diretório dist._  
 
 _Executando os Executáveis_  
-**macOS:** Navegue até dist/mac e abra BlackjackGame.app.
-**Linux:** Navegue até dist/linux-unpacked e execute ./BlackjackGame.
-**Windows:** Navegue até dist/win-unpacked e execute BlackjackGame.exe.
+**macOS:** Navegue até dist/mac e abra BlackjackGame.app.  
+**Linux:** Navegue até dist/linux-unpacked e execute ./BlackjackGame.  
+**Windows:** Navegue até dist/win-unpacked e execute BlackjackGame.exe.  
 
 # Estrutura do Projeto 📂
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/e780d4e7-a113-4cae-870a-6b22aaa8f02a)
