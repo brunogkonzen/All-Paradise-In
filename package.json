@@ -15,7 +15,11 @@
   "author": "Arthur K e Bruno",
   "license": "MIT",
   "dependencies": {
-    "better-sqlite3": "^8.0.0"
+    "@electron/asar": "^3.2.10",
+    "@electron/rebuild": "^3.6.0",
+    "better-sqlite3": "^8.0.0",
+    "glob": "^10.4.2",
+    "rimraf": "^5.0.7"
   },
   "devDependencies": {
     "electron": "^16.0.0",
@@ -35,7 +39,17 @@
       "icon": "assets/icon/icon.icns"
     },
     "linux": {
-      "icon": "assets/icon/icon.png"
-    }
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "./resources/icon.png",
+      "category": "Utility"
+    },
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ]
   }
 }
