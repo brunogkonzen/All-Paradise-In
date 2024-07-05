@@ -210,7 +210,12 @@ _Executando os Executáveis_
 
 # Estrutura do Projeto 📂
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/e780d4e7-a113-4cae-870a-6b22aaa8f02a)
-  
+
+
+# Upgrades Futuros 🆙
+**Leaderboard**  
+**Player vs Player**
+**Esquema de Pontos - fichas / dinheiro ficticio**
 
 # Licença 📄
 Este projeto está licenciado sob a MIT License.
