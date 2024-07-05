@@ -213,9 +213,10 @@ _Executando os Executáveis_
 
 
 # Upgrades Futuros 🆙
-● **Leaderboard**  
-● **Player vs Player**  
-● **Esquema de Pontos - fichas / dinheiro ficticio**  
+● **Leaderboard.**  
+● **Player vs Player.**  
+● **Esquema de Pontos - fichas / dinheiro ficticio.**  
+● **Suporte para diferentes linguagens.**
 
 # Licença 📄
 Este projeto está licenciado sob a MIT License.
