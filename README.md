@@ -31,6 +31,7 @@ _- Electron (para criar aplicativos desktop)_
 5. Funcionalidade das ações de jogo.
 6. Alteração de modo de jogo
 7. Aleatoriedade do Sistema
+8. Exibição correta em diferentes sistemas.
    
 **Testes de Registro de Usuários**
 
@@ -56,12 +57,11 @@ forma correta e segura.
 ● Objetivo: Avaliar a usabilidade e a responsividade da interface do usuário.  
 ● Casos de Teste:
 
-1. Exibição correta em diferentes dispositivos e sistemas.
-2. Navegação intuitiva.
-3. Feedbacks visuais em caso de erros
-4. Feedback sobre funcionalidade do jogo
-5. Reporte de bugs
-6. Fluidez do aplicativo
+1. Navegação intuitiva.
+2. Feedbacks visuais em caso de erros
+3. Feedback sobre funcionalidade do jogo
+4. Reporte de bugs
+5. Fluidez do aplicativo
 
 # Metodologia 📖
 
