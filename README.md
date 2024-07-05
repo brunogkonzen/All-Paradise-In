@@ -21,7 +21,7 @@ _- Electron (para criar aplicativos desktop)_
 
 **Testes da Funcionalidade do Jogo de BlackJack**
 
-● Objetivo: Garantir que o jogo de poker funcione conforme esperado.
+● Objetivo: Garantir que o jogo de poker funcione conforme esperado.  
 ● Casos de Teste:
 
 1. Criação e entrada em mesas de jogo.
@@ -30,12 +30,12 @@ _- Electron (para criar aplicativos desktop)_
 4. Cálculo correto dos vencedores.
 5. Funcionalidade das ações de jogo.
 6. Alteração de modo de jogo
-7. aleatoriedade do Sistema
+7. Aleatoriedade do Sistema
    
 **Testes de Registro de Usuários**
 
 ● Objetivo: Verificar se o sistema permite o registro de novos usuários de
-forma correta e segura.
+forma correta e segura.  
 ● Casos de Teste:
 
 1. Registro com dados válidos.
@@ -44,7 +44,7 @@ forma correta e segura.
    
 **Testes de Login e Autenticação**
 
-● Objetivo: Verificar o processo de login e autenticação de usuários.
+● Objetivo: Verificar o processo de login e autenticação de usuários.  
 ● Casos de Teste:
 
 1. Login com credenciais corretas.
@@ -53,7 +53,7 @@ forma correta e segura.
    
 **Testes da Interface do Usuário**
 
-● Objetivo: Avaliar a usabilidade e a responsividade da interface do usuário.
+● Objetivo: Avaliar a usabilidade e a responsividade da interface do usuário.  
 ● Casos de Teste:
 
 1. Exibição correta em diferentes dispositivos e sistemas.
