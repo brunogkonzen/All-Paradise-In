@@ -43,7 +43,7 @@
         "AppImage",
         "deb"
       ],
-      "icon": "./resources/icon.png",
+      "icon": "assets/icon/icon.png",
       "category": "Utility"
     },
     "publish": [
