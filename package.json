@@ -12,7 +12,7 @@
     "build:mac": "electron-builder build --mac",
     "build:linux": "electron-builder build --linux"
   },
-  "author": "Arthur K e Bruno",
+  "author": "Arthur K e Bruno<brunogkonzen@hotmail.com>",
   "license": "MIT",
   "dependencies": {
     "better-sqlite3": "^8.0.0"
@@ -35,7 +35,17 @@
       "icon": "assets/icon/icon.icns"
     },
     "linux": {
-      "icon": "assets/icon/icon.png"
-    }
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "./resources/icon.png",
+      "category": "Utility"
+    },
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ]
   }
 }
