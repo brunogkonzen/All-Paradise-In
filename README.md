@@ -62,6 +62,33 @@ forma correta e segura.
 5. Reporte de bugs
 6. Fluidez do aplicativo
 
+# Metodologia
+
+   A metodologia ágil aplicada neste projeto teve base na metodologia SCRUM,
+onde os membros do grupo dividiram de forma inteligente o projeto em pequenos
+ciclos de tarefas entre si, sendo executados de forma contínua e flexível conforme a
+disponibilidade de cada membro durante o projeto, mantendo troca de informações
+sobre andamento e estratégias de desenvolvimento semanalmente, assim como o
+estabelecimento de prazos para cada tarefa, garantindo um ritmo de
+desenvolvimento contínuo e uma garantia maior de entrega do projeto no prazo
+estabelecido.
+
+   Para obtermos um controle mais organizado das tarefas a serem realizadas,
+assim como prazos e andamento geral do projeto, utilizamos o aplicativo trello para
+criar um modelo Kanban para nosso projeto, onde separamos cada etapa de
+desenvolvimento em colunas com cartões representando as tarefas necessária a
+serem realizadas, juntamente com suas especificações e um prazo pré
+estabelecido, juntamente com uma comunicação dinâmica onde cada membro
+adicionava frequentemente atualizações sobre o projeto, tornando assim muito mais
+fluido o organizado o andamento do projeto.
+
+
+![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460109/0722080a-d6d5-492f-902f-ca00f3286e39)
+
+
+![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460109/f4c89a40-8361-46ea-9453-0a01436427f0)
+
+
 # Como Jogar 🎮
 **Página de Login:** Faça login para começar a jogar.  
 **Menu Principal:** Escolha entre iniciar um novo jogo ou fazer logout.  
