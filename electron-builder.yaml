@@ -1,0 +1,10 @@
+productName: "All Paradise In"
+win:
+    target: ["msi"]
+    icon: "assets/icon/icon.ico"
+linux:
+    target: ["appimage"]
+    icon: "assets/icon/icon.png"
+mac:
+    target: ["dmg"]
+    icon: "assets/icon/icon.icns"

@@ -1,53 +1,59 @@
 {
-  "name": "all-paradise-in",
-  "version": "1.0.0",
-  "description": "Simple Blackjack game using Electron",
-  "main": "src/js/main.js",
-  "scripts": {
-    "start": "electron .",
-    "dist": "electron-builder --publish never",
-    "postinstall": "electron-builder install-app-deps",
-    "rebuild": "electron-rebuild",
-    "build": "electron-builder",
-    "build:win": "electron-builder --win --x64 --config electron-builder-win.yml",
-    "build:mac": "electron-builder --mac --config electron-builder-mac.yml",
-    "build:linux": "electron-builder --linux --config electron-builder-linux.yml"
-  },
-  "build": {
-    "appId": "com.example.yourapp",
-    "productName": "Your App Name",
+    "name": "all-paradise-in",
+    "version": "1.0.0",
+    "description": "All Paradise In - Blackjack Game",
+    "main": "src/js/main.js",
+    "scripts": {
+      "start": "electron .",
+      "build": "electron-builder",
+      "build:win": "electron-builder build --win",
+      "build:linux": "electron-builder build --linux"
+    },
+    "dependencies": {
+      "electron": "^26.0.0",
+      "better-sqlite3": "^7.5.0"
+    },
+    "devDependencies": {
+      "electron-builder": "^22.14.13"
+    },
+    "build": {
+      "appId": "com.allparadisein.app",
+      "productName": "All Paradise In",
+      "directories": {
+        "buildResources": "assets",
+        "output": "dist"
+      },
+      "files": [
+        "src/**/*",
+        "assets/**/*"
+      ],
+      "win": {
+        "icon": "assets/icon/icon.png",
+        "target": [
+          "nsis",
+          "zip"
+        ]
+      },
+      "linux": {
+        "icon": "assets/icon/icon.png",
+        "target": [
+          "AppImage",
+          "deb",
+          "tar.gz"
+        ]
+      },
+      "mac": {
+        "icon": "assets/icon/icon.png",
+        "target": [
+          "dmg",
+          "zip"
+        ]
+      }
+    },
+    "author": "Arthur e Bruno",
+    "license": "ISC",
     "directories": {
-      "output": "dist"
-    },
-    "files": [
-      "src/**/*",
-      "assets/**/*"
-    ],
-    "win": {
-      "target": [
-        "nsis",
-        "portable"
-      ],
-      "icon": "assets/icon/icons/app.ico"
-    },
-    "mac": {
-      "target": "dmg",
-      "icon": "assets/icon/icons/app.icns"
-    },
-    "linux": {
-      "target": [
-        "deb",
-        "AppImage"
-      ],
-      "icon": "assets/icon/icons/app.png"
+      "doc": "docs"
     }
-  },
-  "dependencies": {
-    "electron": "^11.0.0",
-    "electron-builder": "^22.0.0",
-    "electron-rebuild": "^2.3.4"
-  },
-  "devDependencies": {
-    "better-sqlite3": "^7.1.1"
   }
-}
+  
