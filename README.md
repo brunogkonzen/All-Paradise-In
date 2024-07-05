@@ -89,7 +89,7 @@ fluido o organizado o andamento do projeto.
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460109/f4c89a40-8361-46ea-9453-0a01436427f0)
 
-#Storytelling🔥
+# Storytelling🔥
 
 João sempre foi apaixonado por desafios. Desde criança, ele adorava
 quebra-cabeças e jogos de estratégia. No entanto, nada o preparou para a emoção
