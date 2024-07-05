@@ -19,7 +19,7 @@ _- Electron (para criar aplicativos desktop)_
 
 # Como Jogar 🎮
 **Página de Login:** Faça login para começar a jogar.  
-**Menu Principal:** Escolha entre iniciar um novo jogo ou visualizar o leaderboard.  
+**Menu Principal:** Escolha entre iniciar um novo jogo ou fazer logout.  
 **Escolha de Rounds:** Selecione o número de rounds (melhor de 1, 3 ou 7).  
 **Jogo:** Utilize os botões "Pedir" para pedir uma carta e "Segurar" para manter sua mão.  
 **Resultado:** Veja se você venceu ou perdeu contra o dealer.  
@@ -36,7 +36,7 @@ npm (v6 ou superior)
 **1 -** Clone o repositório:
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/9b94d584-528c-4451-ad0e-e40572648331)
-git clone https://github.com/seu-usuario/blackjack-game.git  
+git clone https://github.com/_seu-usuario/nome-do-game_.git  
 
 
 **2 -** Navegue até o diretório do projeto:
@@ -61,25 +61,31 @@ npm start
 # Construção
 Para criar os executáveis para todas as plataformas:
 
-**1 -** Instale o Electron Packager:
+**1 -** Instale o Electron Builder:
 
-![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/49188e53-1ebf-4170-bce0-afc0fc1a2b4c)
-npm install -g electron-packager  
+![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/a692ec92-885c-4d73-ad6a-263e0c933878)
+
+npm install --save-dev electron-builder
 
 
 **2 -** Execute o seguinte comando para empacotar o aplicativo:
+
+![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/920bb568-dfc8-4d9b-98a5-e766ab34b4cd)
+
+npm run build
+
 
 
 _Isso criará executáveis para macOS, Linux e Windows no diretório dist._  
 
 _Executando os Executáveis_  
-**macOS:** Navegue até dist/BlackjackGame-darwin-x64 e abra BlackjackGame.app.  
-**Linux:** Navegue até dist/BlackjackGame-linux-x64 e execute ./BlackjackGame.  
-**Windows:** Navegue até dist/BlackjackGame-win32-x64 e execute BlackjackGame.exe.  
+**macOS:** Navegue até dist/mac e abra BlackjackGame.app.
+**Linux:** Navegue até dist/linux-unpacked e execute ./BlackjackGame.
+**Windows:** Navegue até dist/win-unpacked e execute BlackjackGame.exe.
 
 # Estrutura do Projeto 📂
-![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/be50bd3b-6561-496f-83c7-fe3126027032)  
-
+![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460092/e780d4e7-a113-4cae-870a-6b22aaa8f02a)
+  
 
 # Licença 📄
 Este projeto está licenciado sob a MIT License.
@@ -88,6 +94,7 @@ Este projeto está licenciado sob a MIT License.
 Agradecemos ao prof. Roberson (antes coordenador) e a prof. Fran (agora coordenadora)! Espero que se divirtam jogando tanto quanto eu e Arthur nos divertimos desenvolvendo.
 
 # Capturas de Tela 
+
 # Menu Principal
 
 # Jogo
