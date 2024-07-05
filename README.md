@@ -64,7 +64,7 @@ forma correta e segura.
 
 # Metodologia
 
-      A metodologia ágil aplicada neste projeto teve base na metodologia SCRUM,
+   A metodologia ágil aplicada neste projeto teve base na metodologia SCRUM,
 onde os membros do grupo dividiram de forma inteligente o projeto em pequenos
 ciclos de tarefas entre si, sendo executados de forma contínua e flexível conforme a
 disponibilidade de cada membro durante o projeto, mantendo troca de informações
@@ -73,7 +73,7 @@ estabelecimento de prazos para cada tarefa, garantindo um ritmo de
 desenvolvimento contínuo e uma garantia maior de entrega do projeto no prazo
 estabelecido.
 
-      Para obtermos um controle mais organizado das tarefas a serem realizadas,
+   Para obtermos um controle mais organizado das tarefas a serem realizadas,
 assim como prazos e andamento geral do projeto, utilizamos o aplicativo trello para
 criar um modelo Kanban para nosso projeto, onde separamos cada etapa de
 desenvolvimento em colunas com cartões representando as tarefas necessária a
