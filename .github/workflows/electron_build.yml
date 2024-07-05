@@ -1,43 +1,34 @@
-name: Electron Build Automation
+name: Build and Publish
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - 'v*.*.*'
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        include:
-          - os: windows-latest
-            platform: win
-          - os: macos-latest
-            platform: mac
-          - os: ubuntu-latest
-            platform: linux
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
       with:
         node-version: '16'
-    
+
     - name: Install dependencies
       run: npm install
-    
-    - name: Build app (Windows)
-      if: matrix.platform == 'win'
-      run: npm run build:win
-    
-    - name: Build app (macOS)
-      if: matrix.platform == 'mac'
-      run: npm run build:mac
-    
-    - name: Build app (Linux)
-      if: matrix.platform == 'linux'
+
+    - name: Rebuild native modules
+      run: npm rebuild better-sqlite3 --build-from-source
+
+    - name: Build Linux package
       run: npm run build:linux
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux-build
+        path: dist/
