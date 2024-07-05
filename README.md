@@ -91,11 +91,11 @@ fluido o organizado o andamento do projeto.
 
 # Diagramas 🖼️
 
-**Diagrama de Caso de Uso**
+-**Diagrama de Caso de Uso**
 
 ![image](https://github.com/brunogkonzen/All-Paradise-In/assets/129460109/a7fe5cfa-64a3-451b-907a-a7f45dda6041)
 
-**Diagrama de Caso de Uso**
+-**Diagrama de Caso de Uso**
 
 ![Diagrama de Classe All-Paradise-In](https://github.com/brunogkonzen/All-Paradise-In/assets/129460109/2fbd46e2-25d3-4e8b-97e0-ab5a56d6293e)
 
