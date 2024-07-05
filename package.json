@@ -5,43 +5,49 @@
   "main": "src/js/main.js",
   "scripts": {
     "start": "electron .",
-     "dist": "electron-builder --publish never",
+    "dist": "electron-builder --publish never",
     "postinstall": "electron-builder install-app-deps",
     "rebuild": "electron-rebuild",
     "build": "electron-builder",
-    "build:win": "electron-builder build --win",
-    "build:mac": "electron-builder build --mac",
-    "build:linux": "electron-builder build --linux"
-  },
-  "author": "Arthur K e Bruno",
-  "license": "MIT",
-  "dependencies": {
-    "better-sqlite3": "^8.0.0"
-  },
-  "devDependencies": {
-    "electron": "^16.0.0",
-    "electron-builder": "^22.14.13",
-    "electron-rebuild": "^3.2.9"
+    "build:win": "electron-builder --win --x64 --config electron-builder-win.yml",
+    "build:mac": "electron-builder --mac --config electron-builder-mac.yml",
+    "build:linux": "electron-builder --linux --config electron-builder-linux.yml"
   },
   "build": {
-  "appId": "com.bruno.allparadisein",
-  "productName": "All Paradise In",
-  "directories": {
-    "output": "dist"
-  },
-  "files": [
-    "src/**/*",
-    "assets/**/*"
-  ],
-  "win": {
-    "target": "nsis",
-    "icon": "build/icon.ico"
-  },
-  "linux": {
-    "target": [
-      "AppImage",
-      "deb"
+    "appId": "com.example.yourapp",
+    "productName": "Your App Name",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*"
     ],
-    "icon": "build/icon.png"
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icon/icons/app.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon/icons/app.icns"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "icon": "assets/icon/icons/app.png"
+    }
+  },
+  "dependencies": {
+    "electron": "^11.0.0",
+    "electron-builder": "^22.0.0",
+    "electron-rebuild": "^2.3.4"
+  },
+  "devDependencies": {
+    "better-sqlite3": "^7.1.1"
   }
-}}
+}
