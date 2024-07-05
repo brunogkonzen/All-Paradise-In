@@ -5,6 +5,7 @@
   "main": "src/js/main.js",
   "scripts": {
     "start": "electron .",
+     "dist": "electron-builder --publish never",
     "postinstall": "electron-builder install-app-deps",
     "rebuild": "electron-rebuild",
     "build": "electron-builder",
@@ -19,23 +20,28 @@
   },
   "devDependencies": {
     "electron": "^16.0.0",
-    "electron-builder": "^22.11.7",
+    "electron-builder": "^22.14.13",
     "electron-rebuild": "^3.2.9"
   },
   "build": {
-    "appId": "com.example.app",
-    "productName": "All Paradise In",
-    "directories": {
-      "output": "dist"
-    },
-    "win": {
-      "icon": "assets/icon/icon.ico"
-    },
-    "mac": {
-      "icon": "assets/icon/icon.icns"
-    },
-    "linux": {
-      "icon": "assets/icon/icon.png"
-    }
+  "appId": "com.bruno.allparadisein",
+  "productName": "All Paradise In",
+  "directories": {
+    "output": "dist"
+  },
+  "files": [
+    "src/**/*",
+    "assets/**/*"
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "build/icon.ico"
+  },
+  "linux": {
+    "target": [
+      "AppImage",
+      "deb"
+    ],
+    "icon": "build/icon.png"
   }
-}
+}}
