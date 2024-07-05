@@ -2,19 +2,37 @@ name: Build and Release Electron App
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.cache-key.outputs.key }}
+    steps:
+      - name: Get cache key
+        id: cache-key
+        run: echo "::set-output name=key::$(date +%Y-%m-%d)"
+
   build-windows:
+    needs: setup
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '16'
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ needs.setup.outputs.cache-key }}-windows
     - name: Install dependencies
       run: npm install
     - name: Build application (Windows)
@@ -26,17 +44,20 @@ jobs:
         path: dist/*.exe
 
   build-mac:
+    needs: setup
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
+    - uses: actions/setup-node@v2
       with:
         node-version: '16'
-    - name: Install dependencies
-      run: npm install
-    - name: Build application (macOS)
-      run: npm run build:mac
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ needs.setup.outputs.cache-key }}-mac
+    - run: npm install
+    - run: npm run build:mac
     - name: Upload macOS Artifact
       uses: actions/upload-artifact@v2
       with:
@@ -44,19 +65,45 @@ jobs:
         path: dist/*.dmg
 
   build-linux:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
+    - uses: actions/setup-node@v2
       with:
         node-version: '16'
-    - name: Install dependencies
-      run: npm install
-    - name: Build application (Linux)
-      run: npm run build:linux
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ needs.setup.outputs.cache-key }}-linux
+    - run: npm install
+    - run: npm run build:linux
     - name: Upload Linux Artifact
       uses: actions/upload-artifact@v2
       with:
         name: linux-app
         path: dist/*.deb
+
+  release:
+    needs: [build-windows, build-mac, build-linux]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: windows-app
+        path: dist
+    - uses: actions/download-artifact@v2
+      with:
+        name: macos-app
+        path: dist
+    - uses: actions/download-artifact@v2
+      with:
+        name: linux-app
+        path: dist
+    - name: Publish to GitHub Releases
+      uses: softprops/action-gh-release@v1
+      with:
+        files: dist/*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
