@@ -1,59 +1,41 @@
 {
-    "name": "all-paradise-in",
-    "version": "1.0.0",
-    "description": "All Paradise In - Blackjack Game",
-    "main": "src/js/main.js",
-    "scripts": {
-      "start": "electron .",
-      "build": "electron-builder",
-      "build:win": "electron-builder build --win",
-      "build:linux": "electron-builder build --linux"
-    },
-    "dependencies": {
-      "electron": "^26.0.0",
-      "better-sqlite3": "^7.5.0"
-    },
-    "devDependencies": {
-      "electron-builder": "^22.14.13"
-    },
-    "build": {
-      "appId": "com.allparadisein.app",
-      "productName": "All Paradise In",
-      "directories": {
-        "buildResources": "assets",
-        "output": "dist"
-      },
-      "files": [
-        "src/**/*",
-        "assets/**/*"
-      ],
-      "win": {
-        "icon": "assets/icon/icon.png",
-        "target": [
-          "nsis",
-          "zip"
-        ]
-      },
-      "linux": {
-        "icon": "assets/icon/icon.png",
-        "target": [
-          "AppImage",
-          "deb",
-          "tar.gz"
-        ]
-      },
-      "mac": {
-        "icon": "assets/icon/icon.png",
-        "target": [
-          "dmg",
-          "zip"
-        ]
-      }
-    },
-    "author": "Arthur e Bruno",
-    "license": "ISC",
+  "name": "all-paradise-in",
+  "version": "1.0.0",
+  "description": "Simple Blackjack game using Electron",
+  "main": "src/js/main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "rebuild": "electron-rebuild",
+    "build": "electron-builder",
+    "build:win": "electron-builder build --win",
+    "build:mac": "electron-builder build --mac",
+    "build:linux": "electron-builder build --linux"
+  },
+  "author": "Arthur K e Bruno",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^8.0.0"
+  },
+  "devDependencies": {
+    "electron": "^16.0.0",
+    "electron-builder": "^22.11.7",
+    "electron-rebuild": "^3.2.9"
+  },
+  "build": {
+    "appId": "com.example.app",
+    "productName": "All Paradise In",
     "directories": {
-      "doc": "docs"
+      "output": "dist"
+    },
+    "win": {
+      "icon": "assets/icon/icon.ico"
+    },
+    "mac": {
+      "icon": "assets/icon/icon.icns"
+    },
+    "linux": {
+      "icon": "assets/icon/icon.png"
     }
   }
-  
+}
