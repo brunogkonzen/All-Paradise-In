@@ -5,7 +5,6 @@
   "main": "src/js/main.js",
   "scripts": {
     "start": "electron .",
-    "test": "mocha",
     "postinstall": "electron-builder install-app-deps",
     "rebuild": "electron-rebuild",
     "build": "electron-builder",
@@ -13,29 +12,15 @@
     "build:mac": "electron-builder build --mac",
     "build:linux": "electron-builder build --linux"
   },
-  "author": "Arthur K e Bruno<brunogkonzen@hotmail.com>",
+  "author": "Arthur K e Bruno",
   "license": "MIT",
   "dependencies": {
-    "@electron/asar": "^3.2.10",
-    "@electron/osx-sign": "^1.3.1",
-    "@electron/rebuild": "^3.6.0",
-    "@npmcli/move-file": "^3.0.0",
-    "are-we-there-yet": "^4.0.2",
-    "asar": "^3.2.0",
-    "better-sqlite3": "^8.0.0",
-    "gauge": "^5.0.2",
-    "glob": "^10.4.2",
-    "inflight": "^1.0.6",
-    "npmlog": "^7.0.1",
-    "rimraf": "^5.0.7"
+    "better-sqlite3": "^8.0.0"
   },
   "devDependencies": {
-    "chai": "^5.1.1",
     "electron": "^16.0.0",
     "electron-builder": "^22.11.7",
-    "electron-rebuild": "^3.2.9",
-    "mocha": "^10.6.0",
-    "spectron": "^19.0.0"
+    "electron-rebuild": "^3.2.9"
   },
   "build": {
     "appId": "com.example.app",
@@ -50,17 +35,7 @@
       "icon": "assets/icon/icon.icns"
     },
     "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
-      "icon": "assets/icon/icon.png",
-      "category": "Utility"
-    },
-    "publish": [
-      {
-        "provider": "github"
-      }
-    ]
+      "icon": "assets/icon/icon.png"
+    }
   }
 }
