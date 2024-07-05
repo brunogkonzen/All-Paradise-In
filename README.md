@@ -19,8 +19,10 @@ _- Electron (para criar aplicativos desktop)_
 
 # Plano de Testes
 **Testes da Funcionalidade do Jogo de BlackJack**
+
 ● Objetivo: Garantir que o jogo de poker funcione conforme esperado.
 ● Casos de Teste:
+
 1. Criação e entrada em mesas de jogo.
 2. Distribuição correta das cartas.
 3. Turnos de jogo.
@@ -28,22 +30,31 @@ _- Electron (para criar aplicativos desktop)_
 5. Funcionalidade das ações de jogo.
 6. Alteração de modo de jogo
 7. aleatoriedade do Sistema
+   
 **Testes de Registro de Usuários**
+
 ● Objetivo: Verificar se o sistema permite o registro de novos usuários de
 forma correta e segura.
 ● Casos de Teste:
+
 1. Registro com dados válidos.
 2. Registro com email já existente.
 3. Registro com campos obrigatórios vazios.
+   
 **Testes de Login e Autenticação**
+
 ● Objetivo: Verificar o processo de login e autenticação de usuários.
 ● Casos de Teste:
+
 1. Login com credenciais corretas.
 2. Login com senha incorreta.
 3. Login com email não registrado.
+   
 **Testes da Interface do Usuário**
+
 ● Objetivo: Avaliar a usabilidade e a responsividade da interface do usuário.
 ● Casos de Teste:
+
 1. Exibição correta em diferentes dispositivos e sistemas.
 2. Navegação intuitiva.
 3. Feedbacks visuais em caso de erros
